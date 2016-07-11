@@ -1,1 +1,0 @@
-webengage.UserProfile.setUserProfileJSONP({"acquisitionData":{"referrer_type":"direct","landing_page":"https://www.codeschool.com/"},"ua":{"browser":{"name":"Chrome","version":"51"},"os":{"name":"Windows","version":"7"},"device":"desktop"},"ts":1467542923383})
