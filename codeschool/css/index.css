@@ -2451,7 +2451,7 @@ textarea {
 .search-icn::before,
 .searchInput-icon::before,
 .icn--search--after::after {
-    content: "\f150"
+    content: ""
 }
 .icn--seats::before,
 .icn--seats--after::after {

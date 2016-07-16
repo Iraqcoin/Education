@@ -8,9 +8,9 @@
     
       <title>Learn by doing | Tony Education</title>
     
-      <link href="index/index.css" media="screen" rel="stylesheet" type="text/css">
-      <link href="index/css.css" media="screen" rel="stylesheet" type="text/css">
-  
+      <link href="css/index.css?v=1" media="screen" rel="stylesheet" type="text/css">
+      <link href="css/css.css" media="screen" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
    </head>
    <body class="home home-show " data-page="home:show">
       <header class="header row row--a has-dropdown js-navToggle-container" role="banner">
@@ -38,7 +38,7 @@
                      <li class="nav-item list-item"><a href="https://www.codeschool.com/users/sign_in" class="nav-item-link list-item-link">Sign in</a></li>
                      <li class="nav-item nav-item--search list-item">
                         <div class="search-trigger" data-target="#search-open" data-toggle="modal">
-                           <span class="search-icn"></span>
+                           <span class="search-icn"><i class="fa fa-search" aria-hidden="true"></i></span>
                         </div>
                      </li>
                   </ol>
@@ -80,7 +80,9 @@
                      <form accept-charset="UTF-8" action="https://www.codeschool.com/search" class="has-searchInput" method="get">
                         <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
                         <input id="loc" name="loc" type="hidden" value="hero">
-                        <div class="searchInput-icon"></div>
+                        <div class="searchInput-icon">
+                           <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
                         <input autocomplete="off" autofocus="autofocus" class="searchInput js-autotypeInput" id="search-field" name="query" type="text">
                      </form>
                   </div>
@@ -1044,5 +1046,8 @@
   
       <style>body.tablesorter-disableSelection { -ms-user-select: none; -moz-user-select: -moz-none;-khtml-user-select: none; -webkit-user-select: none; user-select: none; }.tablesorter-resizable-container { position: relative; height: 1px; }.tablesorter-resizable-handle { position: absolute; display: inline-block; width: 8px;top: 1px; cursor: ew-resize; z-index: 3; user-select: none; -moz-user-select: none; }</style>
      
+     <script type="text/javascript" src="js/angular.min.js"></script>
+     <script type="text/javascript" src="js/angular-route.min.js"></script>
+     <script type="text/javascript" src="js/app/index.js?v=1"></script>
    </body>
 </html>
