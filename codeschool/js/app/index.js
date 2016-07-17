@@ -20,11 +20,35 @@
 		});
 	}
 
+	angular.module('eduCore').factory('eduMainFactory', ['$http', eduMainFactory]);
 
-	angular.module('eduCore').controller('eduMainController', ['$scope', eduMainController]);
+	function eduMainFactory($http) {
+		function getListDetailCourse(callback) {
+			$http.get('../codeschool/data/sub_category.json').then(function(response) {
+				callback(null, response.data);
+			}, function(error) {
+				callback(error, null);
+			});
+		}
 
-	function eduMainController($scope) {
-		console.log('eduMainController');
+		return {
+			list : getListDetailCourse
+		};
+	}
+
+	angular.module('eduCore').controller('eduMainController', ['$scope', 'eduMainFactory', eduMainController]);
+
+	function eduMainController($scope, eduMainFactory) {
+		$scope.listSubCategory = [];
+		
+		eduMainFactory.list(listSubCategoryCallback);
+		function listSubCategoryCallback(error, dataCallback) {
+			if (!error) {
+				$scope.listSubCategory = dataCallback.data;
+			} else {
+				console.log(error);
+			}
+		}
 	}
 
 })();

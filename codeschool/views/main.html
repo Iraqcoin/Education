@@ -33,166 +33,26 @@
           </div>
        </div>
        <div class="mv-flexGrid mv-flexGrid--s mv-flexGrid--center collection collection--center collection--s mbl">
-          <div class="mv-flexGrid-box mv-flexGrid-box--3of6_l collection-item">
+          <div class="mv-flexGrid-box mv-flexGrid-box--3of6_l collection-item" ng-repeat="category in listSubCategory">
              <div class="card card--a card--f path fx fxaic">
                 <a href="https://www.codeschool.com/learn/html-css">
                    <div class="bucket bucket--flag path-bucket">
                       <div class="bucket-media">
                          <div class="badge mbm mbf--m mhc mhf--m">
-                            <img alt="HTML/CSS Path Badge" class="badge-img" height="100" src="index/badge-html-css.svg" width="100">
+                            <img alt="HTML/CSS Path Badge" class="badge-img" height="100" ng-src="{{category.link_icon}}" width="100">
                          </div>
                       </div>
                       <div class="bucket-content">
                          <h2 class="h h--2 path-title">
-                            <span class="link path-title-link twl">HTML/CSS</span>
+                            <span class="link path-title-link twl">{{category.name}}</span>
                             <span class="mlxs tcs tsxxs">12 courses</span>
                          </h2>
-                         <p class="mbf tct tss twl js-orphan">Learn the fundamentals of design, front-end development, and crafting user experiences that are easy on the&nbsp;eyes.</p>
+                         <p class="mbf tct tss twl js-orphan">{{category.description}}</p>
                       </div>
                    </div>
                 </a>
              </div>
-          </div>
-          <div class="mv-flexGrid-box mv-flexGrid-box--3of6_l collection-item">
-             <div class="card card--a card--f path fx fxaic">
-                <a href="https://www.codeschool.com/learn/javascript">
-                   <div class="bucket bucket--flag path-bucket">
-                      <div class="bucket-media">
-                         <div class="badge mbm mbf--m mhc mhf--m">
-                            <img alt="JavaScript Path Badge" class="badge-img" height="100" src="index/badge-javascript.svg" width="100">
-                         </div>
-                      </div>
-                      <div class="bucket-content">
-                         <h2 class="h h--2 path-title">
-                            <span class="link path-title-link twl">JavaScript</span>
-                            <span class="mlxs tcs tsxxs">17 courses</span>
-                         </h2>
-                         <p class="mbf tct tss twl js-orphan">Spend some time with this powerful scripting language and learn to build lightweight applications with enhanced user&nbsp;interfaces.</p>
-                      </div>
-                   </div>
-                </a>
-             </div>
-          </div>
-          <div class="mv-flexGrid-box mv-flexGrid-box--3of6_l collection-item">
-             <div class="card card--a card--f path fx fxaic">
-                <a href="https://www.codeschool.com/learn/ruby">
-                   <div class="bucket bucket--flag path-bucket">
-                      <div class="bucket-media">
-                         <div class="badge mbm mbf--m mhc mhf--m">
-                            <img alt="Ruby Path Badge" class="badge-img" height="100" src="index/badge-ruby.svg" width="100">
-                         </div>
-                      </div>
-                      <div class="bucket-content">
-                         <h2 class="h h--2 path-title">
-                            <span class="link path-title-link twl">Ruby</span>
-                            <span class="mlxs tcs tsxxs">10 courses</span>
-                         </h2>
-                         <p class="mbf tct tss twl js-orphan">Master your Ruby skills and increase your Rails street cred by learning to build dynamic, sustainable applications for the&nbsp;web.</p>
-                      </div>
-                   </div>
-                </a>
-             </div>
-          </div>
-          <div class="mv-flexGrid-box mv-flexGrid-box--3of6_l collection-item">
-             <div class="card card--a card--f path fx fxaic">
-                <a href="https://www.codeschool.com/learn/python">
-                   <div class="bucket bucket--flag path-bucket">
-                      <div class="bucket-media">
-                         <div class="badge mbm mbf--m mhc mhf--m">
-                            <img alt="Python Path Badge" class="badge-img" height="100" src="index/badge-python.svg" width="100">
-                         </div>
-                      </div>
-                      <div class="bucket-content">
-                         <h2 class="h h--2 path-title">
-                            <span class="link path-title-link twl">Python</span>
-                            <span class="mlxs tcs tsxxs">2 courses</span>
-                         </h2>
-                         <p class="mbf tct tss twl js-orphan">Explore what it means to store and manipulate data, make decisions with your program, and leverage the power of&nbsp;Python.</p>
-                      </div>
-                   </div>
-                </a>
-             </div>
-          </div>
-          <div class="mv-flexGrid-box mv-flexGrid-box--3of6_l collection-item">
-             <div class="card card--a card--f path fx fxaic">
-                <a href="https://www.codeschool.com/learn/ios">
-                   <div class="bucket bucket--flag path-bucket">
-                      <div class="bucket-media">
-                         <div class="badge mbm mbf--m mhc mhf--m">
-                            <img alt="iOS Path Badge" class="badge-img" height="100" src="index/badge-ios.svg" width="100">
-                         </div>
-                      </div>
-                      <div class="bucket-content">
-                         <h2 class="h h--2 path-title">
-                            <span class="link path-title-link twl">iOS</span>
-                            <span class="mlxs tcs tsxxs">7 courses</span>
-                         </h2>
-                         <p class="mbf tct tss twl js-orphan">Try building iOS applications for iPhone and iPad mobile devices. Learn the basics of iOS development and bring your app ideas to&nbsp;life.</p>
-                      </div>
-                   </div>
-                </a>
-             </div>
-          </div>
-          <div class="mv-flexGrid-box mv-flexGrid-box--3of6_l collection-item">
-             <div class="card card--a card--f path fx fxaic">
-                <a href="https://www.codeschool.com/learn/git">
-                   <div class="bucket bucket--flag path-bucket">
-                      <div class="bucket-media">
-                         <div class="badge mbm mbf--m mhc mhf--m">
-                            <img alt="Git Path Badge" class="badge-img" height="100" src="index/badge-git.svg" width="100">
-                         </div>
-                      </div>
-                      <div class="bucket-content">
-                         <h2 class="h h--2 path-title">
-                            <span class="link path-title-link twl">Git</span>
-                            <span class="mlxs tcs tsxxs">4 courses</span>
-                         </h2>
-                         <p class="mbf tct tss twl js-orphan">Build a solid foundation in Git, then pair it with advanced version control skills. Learn how to collaborate on projects effectively with&nbsp;GitHub.</p>
-                      </div>
-                   </div>
-                </a>
-             </div>
-          </div>
-          <div class="mv-flexGrid-box mv-flexGrid-box--3of6_l collection-item">
-             <div class="card card--a card--f path fx fxaic">
-                <a href="https://www.codeschool.com/learn/database">
-                   <div class="bucket bucket--flag path-bucket">
-                      <div class="bucket-media">
-                         <div class="badge mbm mbf--m mhc mhf--m">
-                            <img alt="Database Path Badge" class="badge-img" height="100" src="index/badge-database.svg" width="100">
-                         </div>
-                      </div>
-                      <div class="bucket-content">
-                         <h2 class="h h--2 path-title">
-                            <span class="link path-title-link twl">Database</span>
-                            <span class="mlxs tcs tsxxs">3 courses</span>
-                         </h2>
-                         <p class="mbf tct tss twl js-orphan">Take control of your application’s data layer by learning SQL, and take NoSQL for a spin if you’re feeling&nbsp;non-relational.</p>
-                      </div>
-                   </div>
-                </a>
-             </div>
-          </div>
-          <div class="mv-flexGrid-box mv-flexGrid-box--3of6_l collection-item">
-             <div class="card card--a card--f path fx fxaic">
-                <a href="https://www.codeschool.com/learn/electives">
-                   <div class="bucket bucket--flag path-bucket">
-                      <div class="bucket-media">
-                         <div class="badge mbm mbf--m mhc mhf--m">
-                            <img alt="Electives Path Badge" class="badge-img" height="100" src="index/badge-electives.svg" width="100">
-                         </div>
-                      </div>
-                      <div class="bucket-content">
-                         <h2 class="h h--2 path-title">
-                            <span class="link path-title-link twl">Electives</span>
-                            <span class="mlxs tcs tsxxs">3 courses</span>
-                         </h2>
-                         <p class="mbf tct tss twl js-orphan">Learn off the beaten Path and explore how these courses can enhance your overall development&nbsp;strategy.</p>
-                      </div>
-                   </div>
-                </a>
-             </div>
-          </div>
+          </div>          
        </div>
     </div>
  </div>
