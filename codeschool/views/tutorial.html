@@ -44,103 +44,23 @@
                 </div>
                 <h2 class="mbm">Course Overview</h2>
                 <ol class="list list--divided list--divided--m list--divided--f list--divided--open">
-                   <li class="list-item mbm pbm por" id="course-overview">
+                   <li class="list-item mbm pbm por" id="course-overview" ng-repeat="course in listCourse">
                       <div class="bucket bucket--flag">
                          <div class="bucket-media dn db--m">
                             <div class="badge">
-                               <img alt="Level 1 on Try Objective-C" class="badge-img" src="index/level-1-on-try-objective-c.png" height="100" width="100">
+                               <img class="badge-img" ng-src="{{course.link_icon}}" height="100" width="100">
                             </div>
                          </div>
                          <div class="bucket-content">
                             <h3 class="h h--3">
                                <div class="h-label opf twn">
-                                  <span class="prs">Level 1</span>
+                                  <span class="prs">Level {{course.level}}</span>
                                   <span class="bdrl pls tc-sun">Free Level</span>
-                                  <span class="db di--m mls--m tcs ttn">14 Challenges</span>
+                                  <span class="db di--m mls--m tcs ttn">{{course.num_challenges}} Challenges</span>
                                </div>
-                               Grass World
+                               {{course.name}}
                             </h3>
-                            <p class="mbf">Create and log common objects</p>
-                         </div>
-                      </div>
-                   </li>
-                   <li class="list-item mbm pbm por" id="course-overview">
-                      <div class="bucket bucket--flag">
-                         <div class="bucket-media dn db--m">
-                            <div class="badge">
-                               <img alt="Level 2 on Try Objective-C" class="badge-img" src="index/level-2-on-try-objective-c.png" height="100" width="100">
-                            </div>
-                         </div>
-                         <div class="bucket-content">
-                            <h3 class="h h--3">
-                               <div class="h-label opf twn">
-                                  <span class="prs">Level 2</span>
-                                  <span class="bdrl pls tc-sun">Free Level</span>
-                                  <span class="db di--m mls--m tcs ttn">11 Challenges</span>
-                               </div>
-                               Ice World
-                            </h3>
-                            <p class="mbf">Sending messages and getting results</p>
-                         </div>
-                      </div>
-                   </li>
-                   <li class="list-item mbm pbm por" id="course-overview">
-                      <div class="bucket bucket--flag">
-                         <div class="bucket-media dn db--m">
-                            <div class="badge">
-                               <img alt="Level 3 on Try Objective-C" class="badge-img" src="index/level-3-on-try-objective-c.png" height="100" width="100">
-                            </div>
-                         </div>
-                         <div class="bucket-content">
-                            <h3 class="h h--3">
-                               <div class="h-label opf twn">
-                                  <span class="prs">Level 3</span>
-                                  <span class="bdrl pls tc-sun">Free Level</span>
-                                  <span class="db di--m mls--m tcs ttn">12 Challenges</span>
-                               </div>
-                               Sand World
-                            </h3>
-                            <p class="mbf">Control the flow</p>
-                         </div>
-                      </div>
-                   </li>
-                   <li class="list-item mbm pbm por" id="course-overview">
-                      <div class="bucket bucket--flag">
-                         <div class="bucket-media dn db--m">
-                            <div class="badge">
-                               <img alt="Level 4 on Try Objective-C" class="badge-img" src="index/level-4-on-try-objective-c.png" height="100" width="100">
-                            </div>
-                         </div>
-                         <div class="bucket-content">
-                            <h3 class="h h--3">
-                               <div class="h-label opf twn">
-                                  <span class="prs">Level 4</span>
-                                  <span class="bdrl pls tc-sun">Free Level</span>
-                                  <span class="db di--m mls--m tcs ttn">24 Challenges</span>
-                               </div>
-                               Lava World
-                            </h3>
-                            <p class="mbf">Create your own classes</p>
-                         </div>
-                      </div>
-                   </li>
-                   <li class="list-item mbm pbm por" id="course-overview">
-                      <div class="bucket bucket--flag">
-                         <div class="bucket-media dn db--m">
-                            <div class="badge">
-                               <img alt="Level 5 on Try Objective-C" class="badge-img" src="index/level-5-on-try-objective-c.png" height="100" width="100">
-                            </div>
-                         </div>
-                         <div class="bucket-content">
-                            <h3 class="h h--3">
-                               <div class="h-label opf twn">
-                                  <span class="prs">Level 5</span>
-                                  <span class="bdrl pls tc-sun">Free Level</span>
-                                  <span class="db di--m mls--m tcs ttn">9 Challenges</span>
-                               </div>
-                               Space World
-                            </h3>
-                            <p class="mbf">Learning from mistakes</p>
+                            <p class="mbf">{{course.description}}</p>
                          </div>
                       </div>
                    </li>
