@@ -18,15 +18,18 @@
 	}
 
 
-	angular.module('eduCore').controller('eduTutorialController', ['$scope', 'eduCourseFactory', eduTutorialController]);
+	angular.module('eduCore').controller('eduTutorialController', ['$scope', '$routeParams', '$location', 'eduCourseFactory', eduTutorialController]);
 
-	function eduTutorialController($scope, eduCourseFactory) {
+	function eduTutorialController($scope, $routeParams, $location, eduCourseFactory) {
 		$scope.listCourse = [];
-		
+
 		eduCourseFactory.list(listCourseCallback);
 		function listCourseCallback(error, dataCallback) {
 			if (!error) {
-				$scope.listCourse = dataCallback.data;
+				$scope.listCourse = _.filter(dataCallback.data, {
+					'course_id' : parseInt($routeParams.id)
+				});
+				;
 			} else {
 				console.log(error);
 			}

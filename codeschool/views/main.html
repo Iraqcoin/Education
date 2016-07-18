@@ -35,7 +35,7 @@
        <div class="mv-flexGrid mv-flexGrid--s mv-flexGrid--center collection collection--center collection--s mbl">
           <div class="mv-flexGrid-box mv-flexGrid-box--3of6_l collection-item" ng-repeat="category in listSubCategory">
              <div class="card card--a card--f path fx fxaic">
-                <a href="https://www.codeschool.com/learn/html-css">
+                <a ng-href="#/learn/{{getText(category.name)}}/{{category.id}}">
                    <div class="bucket bucket--flag path-bucket">
                       <div class="bucket-media">
                          <div class="badge mbm mbf--m mhc mhf--m">

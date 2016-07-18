@@ -9,10 +9,10 @@
 		$routeProvider.when('/', {
 			templateUrl : '../codeschool/views/main.html',
 			controller : 'eduMainController',
-		}).when('/detail', {
+		}).when('/learn/:name/:id', {
 			templateUrl : '../codeschool/views/detail.html',
 			controller : 'eduDetailController',
-		}).when('/tutorial', {
+		}).when('/tutorial/:id', {
 			templateUrl : '../codeschool/views/tutorial.html',
 			controller : 'eduTutorialController',
 		}).otherwise({
@@ -40,6 +40,7 @@
 
 	function eduMainController($scope, eduMainFactory) {
 		$scope.listSubCategory = [];
+		$scope.getText = getText;
 		
 		eduMainFactory.list(listSubCategoryCallback);
 		function listSubCategoryCallback(error, dataCallback) {
@@ -48,6 +49,10 @@
 			} else {
 				console.log(error);
 			}
+		}
+		
+		function getText(str) {
+			return str.replace(/\//g, '-').toLowerCase();
 		}
 	}
 

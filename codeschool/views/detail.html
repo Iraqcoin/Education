@@ -21,26 +21,26 @@
                    <li class="is-active">iOS</li>
                 </ul>
              </div>
-             <div class="mbl">
+             <div class="mbl" ng-repeat="category in listCategory">
                 <div class="js-pathFilter-subgroup">
                    <h2>
                       <span class="prxs">
-                      iOS Development With Swift
+                      {{category.name}}
                       </span>
                       <span class="progress progress--light tag tag--heading tag--heading--h2 tag--static tag--subdue dib pot3 ttn" id="subgroup-73">
                          <div class="progress-bar dib" style="width: 0%"></div>
-                         <span class="progress-text">0/1 Complete</span>
+                         <span class="progress-text">{{category.finish}}/{{category.total_course}} Complete</span>
                       </span>
                    </h2>
-                   <p class="tss">Swift is a new language for programming iOS and OS X apps that was first introduced in June 2014. These courses will teach you the basics of using Swift to make iOS apps with Apple’s UIKit framework, so you’ll be creating labels, images, scroll views, and tables of data in no time.</p>
+                   <p class="tss">{{category.description}}</p>
                 </div>
-                <div class="js-pathFilter-item has-node has-node--xl" data-item="ios-fundamentals ios swift">
+                <div class="js-pathFilter-item has-node has-node--xl" ng-repeat="course in getCoursesByCateId(category.id)">
                    <div class="course-status node" data-course-id="153"></div>
                    <article class="card card--a course course--unchecked course-status" data-course-id="153" id="course_153" itemscope="" itemtype="http://schema.org/Product">
                       <a href="https://www.codeschool.com/learn/ios#" class="bookmark sentry js-bookmark" data-bookmark-id="153" data-bookmark-type="Course" rel="tooltip" title="" data-original-title="Add bookmark"><b class="srt">Bookmark</b>
                       </a>
                       <div class="badge course-badge" data-course-id="153">
-                         <a href="https://www.codeschool.com/courses/app-evolution-with-swift"><img alt="App Evolution With Swift Completion Badge" class="badge-img" height="100" itemprop="image" src="https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/587/app-evolution-with-swift-b8f38def617f774e6f7cb4e3e845b146.png" width="100">
+                         <a ng-href="#/tutorial/{{course.id}}"><img alt="" class="badge-img" height="100" itemprop="image" ng-src="{{course.link_icon}}" width="100">
                          </a>
                       </div>
                       <div class="course-content">
@@ -49,157 +49,9 @@
                             Course
                             </span>
                             <h2 class="course-title js-search-query">
-                               <a href="https://www.codeschool.com/courses/app-evolution-with-swift" class="course-title-link" data-segment-link="Course Visited" data-segment-properties="{&quot;course_title&quot;:&quot;App Evolution With Swift&quot;,&quot;source&quot;:&quot;All Courses&quot;}">App Evolution With Swift</a>
+                               <a ng-href="#/tutorial/{{course.id}}" class="course-title-link" data-segment-link="Course Visited" data-segment-properties="{&quot;course_title&quot;:&quot;App Evolution With Swift&quot;,&quot;source&quot;:&quot;All Courses&quot;}">{{course.name}}</a>
                             </h2>
-                            <p class="course-tagline" itemprop="description">Evolve your skills and learn how to make your first iOS app with Swift.</p>
-                         </div>
-                      </div>
-                   </article>
-                </div>
-             </div>
-             <div class="mbl">
-                <div class="js-pathFilter-subgroup">
-                   <h2>
-                      <span class="prxs">
-                      iOS Development With Objective-C
-                      </span>
-                      <span class="progress progress--light tag tag--heading tag--heading--h2 tag--static tag--subdue dib pot3 ttn" id="subgroup-15">
-                         <div class="progress-bar dib" style="width: 0%"></div>
-                         <span class="progress-text">0/6 Complete</span>
-                      </span>
-                   </h2>
-                   <p class="tss">Prior to Swift, most iOS apps were developed with a programming language called Objective-C. Many existing apps in the App Store are built with it, and it’s still possible to build apps with just Objective-C. These courses are a great choice for anyone who has experience programming with it and wants to learn more or has inherited an Objective-C project at work and needs to dig into the language.</p>
-                </div>
-                <div class="js-pathFilter-item has-node has-node--xl" data-item="objective-c">
-                   <div class="course-status node" data-course-id="64"></div>
-                   <article class="card card--a course course--unchecked course-status" data-course-id="64" id="course_64" itemscope="" itemtype="http://schema.org/Product">
-                      <a href="https://www.codeschool.com/learn/ios#" class="bookmark sentry js-bookmark" data-bookmark-id="64" data-bookmark-type="Course" rel="tooltip" title="" data-original-title="Add bookmark"><b class="srt">Bookmark</b>
-                      </a>
-                      <div class="badge course-badge" data-course-id="64">
-                         <a href="https://www.codeschool.com/courses/try-objective-c"><img alt="Try Objective-C Completion Badge" class="badge-img" height="100" itemprop="image" src="https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/246/completed-try-objective-c-8416ac82bc82b2a7bd8f9bcc4a3e79ef.png" width="100">
-                         </a>
-                      </div>
-                      <div class="course-content">
-                         <div class="mbxs mbf--m">
-                            <span class="label">
-                            Free Course
-                            </span>
-                            <div class="tag tag--static tag--important dib mls pbf pls prs ptf por pot1n">Free</div>
-                            <h2 class="course-title js-search-query">
-                               <a href="https://www.codeschool.com/courses/try-objective-c" class="course-title-link" data-segment-link="Course Visited" data-segment-properties="{&quot;course_title&quot;:&quot;Try Objective-C&quot;,&quot;source&quot;:&quot;All Courses&quot;}">Try Objective-C</a>
-                            </h2>
-                            <p class="course-tagline" itemprop="description">Learn the language that powers iOS and Mac apps.</p>
-                         </div>
-                      </div>
-                   </article>
-                </div>
-                <div class="js-pathFilter-item has-node has-node--xl" data-item="ios-fundamentals objective-c">
-                   <div class="course-status node" data-course-id="24"></div>
-                   <article class="card card--a course course--unchecked course-status" data-course-id="24" id="course_24" itemscope="" itemtype="http://schema.org/Product">
-                      <a href="https://www.codeschool.com/learn/ios#" class="bookmark sentry js-bookmark" data-bookmark-id="24" data-bookmark-type="Course" rel="tooltip" title="" data-original-title="Add bookmark"><b class="srt">Bookmark</b>
-                      </a>
-                      <div class="badge course-badge" data-course-id="24">
-                         <a href="https://www.codeschool.com/courses/try-ios"><img alt="Try iOS Completion Badge" class="badge-img" height="100" itemprop="image" src="https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/162/completed-try-ios-db05f0ded51e402d88cb960af4e152f0.png" width="100">
-                         </a>
-                      </div>
-                      <div class="course-content">
-                         <div class="mbxs mbf--m">
-                            <span class="label">
-                            Course
-                            </span>
-                            <h2 class="course-title js-search-query">
-                               <a href="https://www.codeschool.com/courses/try-ios" class="course-title-link" data-segment-link="Course Visited" data-segment-properties="{&quot;course_title&quot;:&quot;Try iOS&quot;,&quot;source&quot;:&quot;All Courses&quot;}">Try iOS</a>
-                            </h2>
-                            <p class="course-tagline" itemprop="description">Learn iOS from the ground up.</p>
-                         </div>
-                      </div>
-                   </article>
-                </div>
-                <div class="js-pathFilter-item has-node has-node--xl" data-item="ios-fundamentals objective-c ios">
-                   <div class="course-status node node--connected" data-course-id="31"></div>
-                   <article class="card card--a course course--unchecked course-status" data-course-id="31" id="course_31" itemscope="" itemtype="http://schema.org/Product">
-                      <a href="https://www.codeschool.com/learn/ios#" class="bookmark sentry js-bookmark" data-bookmark-id="31" data-bookmark-type="Course" rel="tooltip" title="" data-original-title="Add bookmark"><b class="srt">Bookmark</b>
-                      </a>
-                      <div class="badge course-badge" data-course-id="31">
-                         <a href="https://www.codeschool.com/courses/ios-operation-models"><img alt="iOS Operation: Models Completion Badge" class="badge-img" height="100" itemprop="image" src="https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/239/completed-ios-operation-models-85575233fe0938a46405060a96121d8d.png" width="100">
-                         </a>
-                      </div>
-                      <div class="course-content">
-                         <div class="mbxs mbf--m">
-                            <span class="label">
-                            Course
-                            </span>
-                            <h2 class="course-title js-search-query">
-                               <a href="https://www.codeschool.com/courses/ios-operation-models" class="course-title-link" data-segment-link="Course Visited" data-segment-properties="{&quot;course_title&quot;:&quot;iOS Operation: Models&quot;,&quot;source&quot;:&quot;All Courses&quot;}">iOS Operation: Models</a>
-                            </h2>
-                            <p class="course-tagline" itemprop="description">Learn to use Models to organize and manage iOS app data.</p>
-                         </div>
-                      </div>
-                   </article>
-                </div>
-                <div class="js-pathFilter-item has-node has-node--xl" data-item="objective-c ios">
-                   <div class="course-status node" data-course-id="103"></div>
-                   <article class="card card--a course course--unchecked course-status" data-course-id="103" id="course_103" itemscope="" itemtype="http://schema.org/Product">
-                      <a href="https://www.codeschool.com/learn/ios#" class="bookmark sentry js-bookmark" data-bookmark-id="103" data-bookmark-type="Course" rel="tooltip" title="" data-original-title="Add bookmark"><b class="srt">Bookmark</b>
-                      </a>
-                      <div class="badge course-badge" data-course-id="103">
-                         <a href="https://www.codeschool.com/courses/core-ios-7"><img alt="Core iOS 7 Completion Badge" class="badge-img" height="100" itemprop="image" src="https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/306/completed-core-ios-7-1a959e081035f3ca3a592ecc8ab99c6c.png" width="100">
-                         </a>
-                      </div>
-                      <div class="course-content">
-                         <div class="mbxs mbf--m">
-                            <span class="label">
-                            Course
-                            </span>
-                            <h2 class="course-title js-search-query">
-                               <a href="https://www.codeschool.com/courses/core-ios-7" class="course-title-link" data-segment-link="Course Visited" data-segment-properties="{&quot;course_title&quot;:&quot;Core iOS 7&quot;,&quot;source&quot;:&quot;All Courses&quot;}">Core iOS 7</a>
-                            </h2>
-                            <p class="course-tagline" itemprop="description">Quickly get up to speed on the core updates of iOS 7.</p>
-                         </div>
-                      </div>
-                   </article>
-                </div>
-                <div class="js-pathFilter-item has-node has-node--xl" data-item="objective-c ios">
-                   <div class="course-status node" data-course-id="97"></div>
-                   <article class="card card--a course course--unchecked course-status" data-course-id="97" id="course_97" itemscope="" itemtype="http://schema.org/Product">
-                      <a href="https://www.codeschool.com/learn/ios#" class="bookmark sentry js-bookmark" data-bookmark-id="97" data-bookmark-type="Course" rel="tooltip" title="" data-original-title="Add bookmark"><b class="srt">Bookmark</b>
-                      </a>
-                      <div class="badge course-badge" data-course-id="97">
-                         <a href="https://www.codeschool.com/courses/ios-operation-mapkit"><img alt="iOS Operation: MapKit Completion Badge" class="badge-img" height="100" itemprop="image" src="https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/259/completed-ios-operation-mapkit-97e67d7e7ac3c8111098274ad072ac23.png" width="100">
-                         </a>
-                      </div>
-                      <div class="course-content">
-                         <div class="mbxs mbf--m">
-                            <span class="label">
-                            Course
-                            </span>
-                            <h2 class="course-title js-search-query">
-                               <a href="https://www.codeschool.com/courses/ios-operation-mapkit" class="course-title-link" data-segment-link="Course Visited" data-segment-properties="{&quot;course_title&quot;:&quot;iOS Operation: MapKit&quot;,&quot;source&quot;:&quot;All Courses&quot;}">iOS Operation: MapKit</a>
-                            </h2>
-                            <p class="course-tagline" itemprop="description">Learn how to add a map to your app.</p>
-                         </div>
-                      </div>
-                   </article>
-                </div>
-                <div class="js-pathFilter-item has-node has-node--xl" data-item="objective-c ios">
-                   <div class="course-status node" data-course-id="112"></div>
-                   <article class="card card--a course course--unchecked course-status" data-course-id="112" id="course_112" itemscope="" itemtype="http://schema.org/Product">
-                      <a href="https://www.codeschool.com/learn/ios#" class="bookmark sentry js-bookmark" data-bookmark-id="112" data-bookmark-type="Course" rel="tooltip" title="" data-original-title="Add bookmark"><b class="srt">Bookmark</b>
-                      </a>
-                      <div class="badge course-badge" data-course-id="112">
-                         <a href="https://www.codeschool.com/courses/exploring-google-maps-for-ios"><img alt="Exploring Google Maps for iOS Completion Badge" class="badge-img" height="100" itemprop="image" src="https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/385/completed-exploring-google-maps-for-ios-e91f4a65f676703091a312d8bc05393d.png" width="100">
-                         </a>
-                      </div>
-                      <div class="course-content">
-                         <div class="mbxs mbf--m">
-                            <span class="label">
-                            Free Course
-                            </span>
-                            <div class="tag tag--static tag--important dib mls pbf pls prs ptf por pot1n">Free</div>
-                            <h2 class="course-title js-search-query">
-                               <a href="https://www.codeschool.com/courses/exploring-google-maps-for-ios" class="course-title-link" data-segment-link="Course Visited" data-segment-properties="{&quot;course_title&quot;:&quot;Exploring Google Maps for iOS&quot;,&quot;source&quot;:&quot;All Courses&quot;}">Exploring Google Maps for iOS</a>
-                            </h2>
-                            <p class="course-tagline" itemprop="description">Learn to use the Google Maps SDK for iOS.</p>
+                            <p class="course-tagline" itemprop="description">{{course.description}}</p>
                          </div>
                       </div>
                    </article>
