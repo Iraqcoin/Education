@@ -7,6 +7,7 @@ package com.vng.zing.education.model;
 
 import com.vng.zing.education.common.MysqlClient;
 import com.vng.zing.education.dto.BaseDTO;
+import com.vng.zing.education.dto.ParentCategoryDTO;
 import com.vng.zing.education.dto.SubCategoryDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -229,7 +230,26 @@ public class SubCategoryModel extends BaseModel<SubCategoryDTO> {
 
     @Override
     public int getTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection dbConnection = null;
+        PreparedStatement preparedStatement = null;
+        ParentCategoryDTO dto = null;
+        String selectSQL = "SELECT COUNT(*) FROM sub_category";
+        int total = 0;
+        try {
+            dbConnection = MysqlClient.getMysqlClient("main").getDbConnection();
+            preparedStatement = dbConnection.prepareStatement(selectSQL);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+               total = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (dbConnection != null) {
+                MysqlClient.getMysqlClient("main").releaseDbConnection(dbConnection);
+            }
+        }
+        return total;
     }
 
 }

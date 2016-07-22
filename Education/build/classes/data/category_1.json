@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "Getting Started With HTML and CSS",
+      "description": "HTML và CSS là những ngôn ngữ bạn có thể sử dụng để xây dựng các trang web và phong cách. Trong khóa học này, bạn sẽ học được những điều cơ bản về HTML và CSS, xây dựng trang web đầu tiên của bạn, và sau đó xem xét một số HTML5 hiện nay và thực hành tốt nhất CSS3.",
+      "sub_cate_id": "2",
+      "total_course": "2",
+      "finish": "1"
+    },
+    {
+      "id": "2",
+      "name": "Intermediate CSS",
+      "description": "Simple CSS có thể giúp bạn có được khá xa, nhưng một khi bạn bắt đầu nhận nghiêm trọng về phát triển front-end, bạn cần phải được tiếp xúc với chủ đề nâng cao hơn, chẳng hạn như tính đặc trưng, ​​nổi, hoạt hình và thiết kế đáp ứng. Các khóa học này dạy cho bạn một số thông lệ tốt nhất để làm việc với CSS và xây dựng trang web đáp ứng để người dùng của bạn di chuyển đúng hướng.",
+      "sub_cate_id": "2",
+      "total_course": "2",
+      "finish": "0"
+    },
+    {
+      "id": "3",
+      "name": "CSS Preprocessors",
+      "description": "Nhiều nhà phát triển front-end thích sử dụng tiền xử lý CSS để tổ chức và tăng tốc công việc của họ. Có nhiều lựa chọn, nhưng chúng tôi thích sự đa dạng phổ biến Sass.",
+      "sub_cate_id": "2",
+      "total_course": "1",
+      "finish": "0"
+    },
+    {
+      "id": "4",
+      "name": "Design",
+      "description": "Một nhà phát triển front-end với sự nhạy cảm thiết kế tốt có thể mơ đến cách thức điều nên xem xét và làm việc, và sau đó sử dụng sức mạnh của HTML và CSS để thực hiện những mẫu thiết kế.",
+      "sub_cate_id": "2",
+      "total_course": "2",
+      "finish": "0"
+    }
+  ],
+  "maxRow": "10"
+}

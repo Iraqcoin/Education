@@ -4,8 +4,12 @@
  */
 package com.vng.zing.education.servers;
 
+import com.vng.zing.education.handlers.AdminHomeHandler;
 import com.vng.zing.education.handlers.AdminServiceHandler;
 import com.vng.zing.education.handlers.FileUploadServlet;
+import com.vng.zing.education.handlers.LoadHomeHandler;
+import com.vng.zing.education.handlers.LoginHandler;
+import com.vng.zing.education.handlers.RegisterHandler;
 import com.vng.zing.jettyserver.WebServers;
 import java.util.EnumSet;
 import javax.servlet.DispatcherType;
@@ -19,8 +23,6 @@ import org.eclipse.jetty.server.session.HashSessionManager;
 import org.eclipse.jetty.server.session.SessionHandler;
 import org.eclipse.jetty.servlet.FilterHolder;
 import org.eclipse.jetty.servlet.ServletContextHandler;
-
-import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.servlets.IncludableGzipFilter;
 
@@ -42,8 +44,11 @@ public class HServers {
         holder.setInitParameter("mimeTypes", "application/json");
 
         h.addFilter(holder, "/*", EnumSet.of(DispatcherType.REQUEST));
-
+        h.addServlet(LoadHomeHandler.class, "/");
+        h.addServlet(AdminHomeHandler.class, "/admin");
         h.addServlet(AdminServiceHandler.class, "/api");
+        h.addServlet(LoginHandler.class, "/user/sign_in");
+        h.addServlet(RegisterHandler.class, "/user/sign_up");
 
         ContextHandler resource_handler = new ContextHandler("/static");
         resource_handler.setResourceBase("./public/");

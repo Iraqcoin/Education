@@ -8,6 +8,7 @@ package com.vng.zing.education.model;
 import com.vng.zing.education.common.MysqlClient;
 import com.vng.zing.education.dto.BaseDTO;
 import com.vng.zing.education.dto.CourseDTO;
+import com.vng.zing.education.dto.ParentCategoryDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -111,7 +112,7 @@ public class CourseModel extends BaseModel<CourseDTO> {
         Connection dbConnection = null;
         PreparedStatement preparedStatement = null;
         List<BaseDTO> data = new ArrayList<>();
-        String selectSQL = "SELECT * FROM course WHERE parent_cate_id = ? LIMIT ? , ?";
+        String selectSQL = "SELECT * FROM course WHERE cate_id = ? LIMIT ? , ?";
         try {
             dbConnection = MysqlClient.getMysqlClient("main").getDbConnection();
             preparedStatement = dbConnection.prepareStatement(selectSQL);
@@ -270,7 +271,26 @@ public class CourseModel extends BaseModel<CourseDTO> {
 
     @Override
     public int getTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection dbConnection = null;
+        PreparedStatement preparedStatement = null;
+        ParentCategoryDTO dto = null;
+        String selectSQL = "SELECT COUNT(*) FROM course";
+        int total = 0;
+        try {
+            dbConnection = MysqlClient.getMysqlClient("main").getDbConnection();
+            preparedStatement = dbConnection.prepareStatement(selectSQL);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+               total = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (dbConnection != null) {
+                MysqlClient.getMysqlClient("main").releaseDbConnection(dbConnection);
+            }
+        }
+        return total;
     }
 
 }

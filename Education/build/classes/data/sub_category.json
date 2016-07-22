@@ -1,0 +1,61 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "HTML/CSS",
+      "parent_cate_id": 1,
+      "description": "Tìm hiểu các nguyên tắc cơ bản của thiết kế, phát triển front-end, và đúc trải nghiệm người dùng được dễ dàng trên mắt.",
+      "link_icon": "https://www.codeschool.com/assets/paths/badge-html-css-min-a6acee226fc4253bc3d56bf8873eca2731005113a7291a094c656845d6c65c30.svg"
+    },
+    {
+      "id": 2,
+      "name": "JavaScript",
+      "parent_cate_id": 1,
+      "description": "Hãy dành một chút thời gian với ngôn ngữ kịch bản mạnh mẽ này và tìm hiểu để xây dựng các ứng dụng nhẹ với tăng cường giao diện người dùng.",
+      "link_icon": "http://codeschool.com/assets/paths/badge-javascript-min-61c3e5858a6e6aee7aa5715f8d8824deaf087b6fa689df71451ea864805832f7.svg"
+    },
+    {
+      "id": 3,
+      "name": "Ruby",
+      "parent_cate_id": 1,
+      "description": "Nắm vững các kỹ năng của Ruby và tăng cred đường Rails của bạn bằng cách học để xây dựng năng động, các ứng dụng bền vững cho các trang web.",
+      "link_icon": "http://codeschool.com/assets/paths/badge-ruby-min-d25a54bbab64a6e8b4fe1558748a49ee8c71887d0b65630a0cf0dab4791c57dc.svg"
+    },
+    {
+      "id": 4,
+      "name": "Python",
+      "parent_cate_id": 1,
+      "description": "Khám phá những gì nó có nghĩa là để lưu trữ và thao tác dữ liệu, đưa ra quyết định với chương trình của bạn, và tận dụng sức mạnh của Python.",
+      "link_icon": "http://codeschool.com/assets/paths/badge-python-min-ec07ed3e9d1c5bd23a07ec84975d0cc447000e188cbc34264a22581b35fa2025.svg"
+    },
+    {
+      "id": 5,
+      "name": "iOS",
+      "parent_cate_id": 1,
+      "description": "Hãy thử xây dựng các ứng dụng iOS cho các thiết bị di động iPhone và iPad. Tìm hiểu những điều cơ bản của sự phát triển iOS và mang lại những ý tưởng ứng dụng của bạn với cuộc sống.",
+      "link_icon": "https://www.codeschool.com/assets/paths/badge-ios-min-0f00eefa69cc5a41ff1522e2e3012023cdd2859169504c425d1c557fcd789894.svg"
+    },
+    {
+      "id": 6,
+      "name": "Git + Svn",
+      "parent_cate_id": 1,
+      "description": "Xây dựng một nền tảng vững chắc trong Git, sau đó ghép nó với phiên bản nâng cao các kỹ năng kiểm soát. Tìm hiểu làm thế nào để cộng tác trên các dự án có hiệu quả với GitHub.",
+      "link_icon": "https://www.codeschool.com/assets/paths/badge-git-min-cbf88ad762eee30610641b2373a7e3786123f55c0450ecd42f61e7d7255138d2.svg"
+    },
+    {
+      "id": 7,
+      "name": "Database",
+      "parent_cate_id": 1,
+      "description": "Xây dựng câu trúc lưu trữ data với nhiều loại database khác nhau.",
+      "link_icon": "https://www.codeschool.com/assets/paths/badge-database-min-d3543bd7f75a1797dc1328648e88e0faaa4b963014037a63d40c618641f009cc.svg"
+    },
+    {
+      "id": 8,
+      "name": "Java",
+      "parent_cate_id": 1,
+      "description": "Lập trình web , mobile với ngôn ngữ phổ biến nhất giới.",
+      "link_icon": "https://www.codeschool.com/assets/paths/badge-electives-min-04558aa07be6a8e932309a7575c158c1922d5ed80bb27d510a43087951d0855a.svg"
+    }
+  ],
+  "maxRow": 8
+}

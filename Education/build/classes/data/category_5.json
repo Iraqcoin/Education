@@ -1,0 +1,21 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "iOS Development With Swift",
+      "description": "Swift là một ngôn ngữ mới cho lập trình iOS và OS X ứng dụng lần đầu tiên được giới thiệu vào tháng Sáu năm 2014. Các khóa học này sẽ dạy cho bạn những điều cơ bản của việc sử dụng Swift để làm cho các ứng dụng iOS với khung UIKit của Apple, do đó, bạn sẽ được tạo nhãn, hình ảnh, di chuyển quan điểm, và các bảng dữ liệu trong thời gian không.",
+      "sub_cate_id": "6",
+      "total_course": "1",
+      "finish": "0"
+    },
+    {
+      "id": "2",
+      "name": "iOS Development With Objective-C",
+      "description": "Trước Swift, hầu hết các ứng dụng iOS được phát triển với một ngôn ngữ lập trình gọi là Objective-C. Nhiều ứng dụng hiện có trong App Store được xây dựng với nó, và nó vẫn còn có thể xây dựng các ứng dụng chỉ với Objective-C. Các khóa học này là một lựa chọn tuyệt vời cho những ai có kinh nghiệm lập trình với nó và muốn tìm hiểu thêm hoặc đã thừa kế một dự án Objective-C tại nơi làm việc và cần phải đào sâu vào ngôn ngữ.",
+      "sub_cate_id": "6",
+      "total_course": "6",
+      "finish": "0"
+    }
+  ],
+  "maxRow": "10"
+}

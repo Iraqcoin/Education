@@ -1,0 +1,650 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="main-app">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="apple-touch-icon" href="apple-touch-icon.png">
+      <!-- Place favicon.ico in the root directory -->
+      <link rel="stylesheet" href="{{static_domain}}/admin/css/vendor.css">
+      <!-- Theme initialization -->
+      <script>
+         var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
+         {};
+         var themeName = themeSettings.themeName || '';
+         if (themeName)
+         {
+             document.write('<link rel="stylesheet" id="theme-style" href="{{static_domain}}/admin/css/app-' + themeName + '.css">');
+         }
+         else
+         {
+             document.write('<link rel="stylesheet" id="theme-style" href="{{static_domain}}/admin/css/app.css">');
+         }
+      </script>
+   </head>
+   <body>
+      <div class="main-wrapper">
+         <div class="app" id="app">
+            <header class="header">
+               <div class="header-block header-block-collapse hidden-lg-up"> <button class="collapse-btn" id="sidebar-collapse-btn">
+                  <i class="fa fa-bars"></i>
+                  </button> 
+               </div>
+               <div class="header-block header-block-search hidden-sm-down">
+                  <form role="search">
+                     <div class="input-container">
+                        <i class="fa fa-search"></i> <input type="search" placeholder="Search">
+                        <div class="underline"></div>
+                     </div>
+                  </form>
+               </div>
+               <div class="header-block header-block-buttons">
+               </div>
+               <div class="header-block header-block-nav">
+                  <ul class="nav-profile">
+                     <li class="notifications new">
+                        <a href="" data-toggle="dropdown"> <i class="fa fa-bell-o"></i> <sup>
+                        <span class="counter">8</span>
+                        </sup> </a>
+                        <div class="dropdown-menu notifications-dropdown-menu">
+                           <ul class="notifications-container">
+                              <li>
+                                 <a href="" class="notification-item">
+                                    <div class="img-col">
+                                       <div class="img" style="background-image: url('{{static_domain}}/admin/assets/faces/3.jpg')"></div>
+                                    </div>
+                                    <div class="body-col">
+                                       <p> <span class="accent">Zack Alien</span> pushed new commit: <span class="accent">Fix page load performance issue</span>. </p>
+                                    </div>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="" class="notification-item">
+                                    <div class="img-col">
+                                       <div class="img" style="background-image: url('{{static_domain}}/admin/assets/faces/5.jpg')"></div>
+                                    </div>
+                                    <div class="body-col">
+                                       <p> <span class="accent">Amaya Hatsumi</span> started new task: <span class="accent">Dashboard UI design.</span>. </p>
+                                    </div>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="" class="notification-item">
+                                    <div class="img-col">
+                                       <div class="img" style="background-image: url('assets/faces/8.jpg')"></div>
+                                    </div>
+                                    <div class="body-col">
+                                       <p> <span class="accent">Andy Nouman</span> deployed new version of <span class="accent">NodeJS REST Api V3</span> </p>
+                                    </div>
+                                 </a>
+                              </li>
+                           </ul>
+                           <footer>
+                              <ul>
+                                 <li> <a href="">
+                                    View All
+                                    </a> 
+                                 </li>
+                              </ul>
+                           </footer>
+                        </div>
+                     </li>
+                     <li class="profile dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                           <div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40')"> </div>
+                           <span class="name">
+                           John Doe
+                           </span> 
+                        </a>
+                        <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
+                           <a class="dropdown-item" href="#"> <i class="fa fa-user icon"></i> Profile </a>
+                           <a class="dropdown-item" href="#"> <i class="fa fa-bell icon"></i> Notifications </a>
+                           <a class="dropdown-item" href="#"> <i class="fa fa-gear icon"></i> Settings </a>
+                           <div class="dropdown-divider"></div>
+                           <a class="dropdown-item" href="login.html"> <i class="fa fa-power-off icon"></i> Logout </a>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </header>
+            <aside class="sidebar">
+               <div class="sidebar-container">
+                  <div class="sidebar-header">
+                     <div class="brand">
+                        <div class="logo"> <span class="l l1"></span> <span class="l l2"></span> <span class="l l3"></span> <span class="l l4"></span> <span class="l l5"></span> </div>
+                        Codeschool Admin 
+                     </div>
+                  </div>
+                  <nav class="menu">
+                     <ul class="nav metismenu" id="sidebar-menu">
+                        <li class="active">
+                           <a href="#/"> <i class="fa fa-home"></i> Dashboard </a>
+                        </li>
+                        <li>
+                           <a href=""> <i class="fa fa-th-large"></i> Items Manager <i class="fa arrow"></i> </a>
+                           <ul>
+                              <li> <a href="#item/1">
+                                 Parent Category
+                                 </a> 
+                              </li>
+                              <li> <a href="#item/2">
+                                 SubCategory
+                                 </a> 
+                              </li>
+                              <li> <a href="#item/3">
+                                 Category
+                                 </a> 
+                              </li>
+                              <li> <a href="#item/4">
+                                 Course
+                                 </a> 
+                              </li>
+                              <li> <a href="#item/5">
+                                 Course Details
+                                 </a> 
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <a href=""> <i class="fa fa-bar-chart"></i> Charts <i class="fa arrow"></i> </a>
+                           <ul>
+                              <li> <a href="#charts-flot">
+                                 Flot Charts
+                                 </a> 
+                              </li>
+                              <li> <a href="#charts-morris">
+                                 Morris Charts
+                                 </a> 
+                              </li>
+                           </ul>
+                        </li>
+                       
+                      
+                        <li>
+                           <a href=""> <i class="fa fa-file-text-o"></i> Pages <i class="fa arrow"></i> </a>
+                           <ul>
+                              <li> <a href="login.html">
+                                 Login
+                                 </a> 
+                              </li>
+                              <li> <a href="signup.html">
+                                 Sign Up
+                                 </a> 
+                              </li>
+                              <li> <a href="reset.html">
+                                 Reset
+                                 </a> 
+                              </li>
+                              <li> <a href="error-404.html">
+                                 Error 404 App
+                                 </a> 
+                              </li>
+                              <li> <a href="error-404-alt.html">
+                                 Error 404 Global
+                                 </a> 
+                              </li>
+                              <li> <a href="error-500.html">
+                                 Error 500 App
+                                 </a> 
+                              </li>
+                              <li> <a href="error-500-alt.html">
+                                 Error 500 Global
+                                 </a> 
+                              </li>
+                           </ul>
+                        </li>
+                        
+                     </ul>
+                  </nav>
+               </div>
+               <footer class="sidebar-footer">
+                  <ul class="nav metismenu" id="customize-menu">
+                     <li>
+                        <ul>
+                           <li class="customize">
+                              <div class="customize-item">
+                                 <div class="row customize-header">
+                                    <div class="col-xs-4"> </div>
+                                    <div class="col-xs-4"> <label class="title">fixed</label> </div>
+                                    <div class="col-xs-4"> <label class="title">static</label> </div>
+                                 </div>
+                                 <div class="row hidden-md-down">
+                                    <div class="col-xs-4"> <label class="title">Sidebar:</label> </div>
+                                    <div class="col-xs-4"> <label>
+                                       <input class="radio" type="radio" name="sidebarPosition" value="sidebar-fixed" >
+                                       <span></span>
+                                       </label> 
+                                    </div>
+                                    <div class="col-xs-4"> <label>
+                                       <input class="radio" type="radio" name="sidebarPosition" value="">
+                                       <span></span>
+                                       </label> 
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-xs-4"> <label class="title">Header:</label> </div>
+                                    <div class="col-xs-4"> <label>
+                                       <input class="radio" type="radio" name="headerPosition" value="header-fixed">
+                                       <span></span>
+                                       </label> 
+                                    </div>
+                                    <div class="col-xs-4"> <label>
+                                       <input class="radio" type="radio" name="headerPosition" value="">
+                                       <span></span>
+                                       </label> 
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-xs-4"> <label class="title">Footer:</label> </div>
+                                    <div class="col-xs-4"> <label>
+                                       <input class="radio" type="radio" name="footerPosition" value="footer-fixed">
+                                       <span></span>
+                                       </label> 
+                                    </div>
+                                    <div class="col-xs-4"> <label>
+                                       <input class="radio" type="radio" name="footerPosition" value="">
+                                       <span></span>
+                                       </label> 
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="customize-item">
+                                 <ul class="customize-colors">
+                                    <li> <span class="color-item color-red" data-theme="red"></span> </li>
+                                    <li> <span class="color-item color-orange" data-theme="orange"></span> </li>
+                                    <li> <span class="color-item color-green" data-theme="green"></span> </li>
+                                    <li> <span class="color-item color-seagreen" data-theme="seagreen"></span> </li>
+                                    <li> <span class="color-item color-blue active" data-theme=""></span> </li>
+                                    <li> <span class="color-item color-purple" data-theme="purple"></span> </li>
+                                 </ul>
+                              </div>
+                           </li>
+                        </ul>
+                        <a href=""> <i class="fa fa-cog"></i> Customize </a>
+                     </li>
+                  </ul>
+               </footer>
+            </aside>
+            <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+            <div ng-view></div>
+
+            <footer class="footer">
+               <div class="footer-block buttons"> <iframe class="footer-github-btn" src="https://ghbtns.com/github-btn.html?user=modularcode&repo=modular-admin-html&type=star&count=true" frameborder="0" scrolling="0" width="140px" height="20px"></iframe> </div>
+               <div class="footer-block author">
+                  <ul>
+                     <li> created by <a href="https://github.com/modularcode">ModularCode</a> </li>
+                     <li> <a href="https://github.com/modularcode/modular-admin-html#get-in-touch">get in touch</a> </li>
+                  </ul>
+               </div>
+            </footer>
+            <div class="modal fade" id="modal-media">
+               <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                        </button>
+                        <h4 class="modal-title">Media Library</h4>
+                     </div>
+                     <div class="modal-body modal-tab-container">
+                        <ul class="nav nav-tabs modal-tabs" role="tablist">
+                           <li class="nav-item"> <a class="nav-link" href="#gallery" data-toggle="tab" role="tab">Gallery</a> </li>
+                           <li class="nav-item"> <a class="nav-link active" href="#upload" data-toggle="tab" role="tab">Upload</a> </li>
+                        </ul>
+                        <div class="tab-content modal-tab-content">
+                           <div class="tab-pane fade" id="gallery" role="tabpanel">
+                              <div class="images-container">
+                                 <div class="row"> </div>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade active in" id="upload" role="tabpanel">
+                              <div class="upload-container">
+                                 <div id="dropzone">
+                                    <form action="/" method="POST" enctype="multipart/form-data" class="dropzone needsclick dz-clickable" id="demo-upload">
+                                       <div class="dz-message-block">
+                                          <div class="dz-message needsclick"> Drop files here or click to upload. </div>
+                                       </div>
+                                    </form>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="modal-footer"> <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Insert Selected</button> </div>
+                  </div>
+                  <!-- /.modal-content -->
+               </div>
+               <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+            <div class="modal fade" id="confirm-modal">
+               <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title"><i class="fa fa-warning"></i> Alert</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>Are you sure want to do this?</p>
+                     </div>
+                     <div class="modal-footer"> <button type="button" class="btn btn-primary" data-dismiss="modal">Yes</button> <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button> </div>
+                  </div>
+                  <!-- /.modal-content -->
+               </div>
+               <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+         </div>
+      </div>
+      <!-- Reference block for JS -->
+      <div class="ref" id="ref">
+         <div class="color-primary"></div>
+         <div class="chart">
+            <div class="color-primary"></div>
+            <div class="color-secondary"></div>
+         </div>
+      </div>
+       <script>
+        var STATIC_DOMAIN = "{{static_domain}}";
+      </script>
+      <script src="{{static_domain}}/admin/js/vendor.js?v=1"></script>
+      <script src="{{static_domain}}/admin/js/app.js?v=1"></script>
+      <script type="text/javascript" src="{{static_domain}}/js/angular.min.js"></script>
+      <script type="text/javascript" src="{{static_domain}}/js/angular-route.min.js"></script>
+      <script type="text/javascript" src="{{static_domain}}/js/lodash.min.js"></script>
+     
+      <script type="text/javascript">
+         var app = angular.module('main-app', ['ngRoute']);
+         app.config(function($interpolateProvider, $httpProvider) {
+            $interpolateProvider.startSymbol('[[').endSymbol(']]');
+            $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+            $httpProvider.defaults.transformRequest = function(obj) {
+                var str = [];
+                for (var p in obj) {
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                }
+                return str.join("&");
+            };
+        });
+         app.config(['$routeProvider',
+            function($routeProvider) {
+               $routeProvider.
+                    when('/', {
+                        templateUrl : '/static/admin/dashboard.html',
+                        controller : 'adminDashboardCtr'
+                    }).
+                    when('/item/:id', {
+                        templateUrl: '/static/admin/items-list.html',
+                        controller : 'itemListCtr'
+                    }).
+                     when('/edit-item/:type/:id', {
+                        templateUrl: '/static/admin/item-editor.html',
+                        controller : 'editItemCtr'
+                    }).
+                     when('/charts-flot', {
+                        templateUrl: '/static/admin/charts-flot.html',
+                        controller : 'chartsFlotCtr'
+                    }).
+                     when('/charts-morris', {
+                        templateUrl: '/static/admin/charts-morris.html',
+                        controller : 'chartsMorrisCtr'
+                    }).
+                     when('/error-404', {
+                        templateUrl: '/static/admin/error-404.html',
+                        controller : 'errorCtr'
+                    }).
+                     when('/error-500', {
+                        templateUrl: '/static/admin/error-500.html',
+                        controller : 'errorCtr'
+                    }).
+                    otherwise({
+                        redirectTo: '/'
+                    });
+        }]);
+         app.controller('adminDashboardCtr', ['$scope','$rootScope', function($scope,$rootScope){
+            $rootScope.loadJS = function(file) {
+                // DOM: Create the script element
+                var jsElm = document.createElement("script");
+                // set the type attribute
+                jsElm.type = "application/javascript";
+                // make the script element load file
+                jsElm.src = file;
+                // finally insert the element to the body element in order to load the script
+                document.body.appendChild(jsElm);
+            }
+            $rootScope.loadJS(STATIC_DOMAIN + "/admin/js/app.js?v=2");
+            $rootScope.loadJS(STATIC_DOMAIN + "/admin/js/vendor.js?v=2");
+         }]);
+
+
+
+
+
+         app.controller('itemListCtr', ['$scope','$rootScope','$routeParams','$http', function($scope,$rootScope,$routeParams,$http){
+            $scope.metricSelect = [1,2,3,4];
+            $scope.metricSelectedId = $routeParams.id ? $routeParams.id : 1;
+            console.log($scope.metricSelectedId);
+            $scope.currentPage = 1;
+            $scope.dataReportShow = [];
+            $scope.maxRow = 10;
+            $scope.total = 0;
+            $scope.listData = [];
+            $scope.listCate = [];
+
+            $scope.getActionName = function(){
+               if($scope.metricSelectedId == 1)
+                  return "get-parent-category";
+               else if($scope.metricSelectedId == 2)
+                  return "get-sub-category";
+               else if($scope.metricSelectedId == 3)
+                  return "get-category";
+               else if($scope.metricSelectedId == 4)
+                  return "get-course";
+               else if($scope.metricSelectedId == 5)
+                  return "get-course-detail";
+               else
+                  return "get-parent-category";
+            }
+            $scope.getDataCategory = function(){
+               var action = "";
+               if($scope.metricSelectedId == 1)
+                  action = "get-all-parent-category";
+               else if($scope.metricSelectedId == 2)
+                  action = "get-all-parent-category";
+               else if($scope.metricSelectedId == 3)
+                  action = "get-all-sub-category";
+               else if($scope.metricSelectedId == 4)
+                  action = "get-all-category";
+               else if($scope.metricSelectedId == 5)
+                  action = "get-all-course";
+               $scope.getJSON("{{domain}}/api?action=" + action , function(data){
+                    if(data.data){
+                        $scope.listCate = data.data;
+                        console.log(data);
+                        $scope.getDataList();
+                    }
+                }, function(error){
+                    console.log(error);
+               });
+            }
+            $scope.getParentCategory = function(id){
+               for(var x in $scope.listCate){
+                  if($scope.listCate[x].id == id)
+                     return $scope.listCate[x].name;
+               }
+               return "root";
+            }
+            $scope.getDataList = function(){
+               $scope.showLoading = true;
+               var action = $scope.getActionName();
+               $scope.getJSON("{{domain}}/api?action=" + action + "&page=" + $scope.currentPage + "&admin=1" , function(data){
+                    if(data.data){
+                        $scope.listData = data.data;
+                        $scope.total = data.total;
+                        console.log(data);
+                    }
+                    $scope.getDataReportShowed();
+                    $scope.showLoading = false;
+                }, function(error){
+                    console.log(error);
+                });
+            }
+
+            $scope.getDataReportShowed = function() {
+                $scope.getMaxPage();
+                $scope.dataReportShow = [];
+                var i = 0;
+                for (; i < $scope.listData.length; i++) {
+                    $scope.dataReportShow.push($scope.listData[i]);
+                }
+            }
+            $scope.getMaxPage = function() {
+                var max;
+                max = Math.ceil($scope.total / $scope.maxRow);
+                $scope.maxPage = max;
+                $scope.arrPage = [];
+                for(var i = 0 ; i < $scope.maxPage ; i++){
+                    $scope.arrPage.push(i + 1);
+                    if(i > 10)
+                        break;
+                }
+                console.log($scope.arrPage);
+            }
+            $scope.nextPage = function() {
+             if ($scope.currentPage < $scope.maxPage) {
+                    $scope.currentPage++;
+                    $scope.changePage();
+                }
+            }
+            $scope.prevPage = function() {
+                if ($scope.currentPage > 1) {
+                    $scope.currentPage--;
+                    $scope.changePage();
+                }
+            }
+            $scope.changePage = function(i){
+                console.log("changePage");  
+                if(i != undefined && i > 0)
+                    $scope.currentPage = i;
+                $scope.getDataList();
+                return false;
+            }
+
+            $scope.cacheAjax = {};
+            $scope.getJSON = function (url, success , error) {
+                //Get from cache
+                if (typeof $scope.cacheAjax[url] != "undefined") {
+                    //console.log("getfromCache");
+                    success($scope.cacheAjax[url]);
+                    return;
+                }
+                $http.get(url)
+                    .success(function (data) {
+                        if (typeof data !== "undefined") {
+                            var tmp;
+                            tmp = angular.copy(data, tmp);
+                            $scope.cacheAjax[url] = tmp;
+                            try {
+                                success(data);
+                            } catch (e) {
+                                console.log("error");
+                            }
+                        }
+                    }).error(function(){
+                        console.log("Get JSON Ajax Fail: " + url);
+                        error("Get JSON Ajax Fail: " + url);
+                    });
+            }//end GetJson
+            $scope.getDataCategory();
+      
+            $rootScope.loadJS(STATIC_DOMAIN + "/admin/js/app.js?v=2");
+         }]);
+
+         app.controller('editItemCtr', ['$scope','$rootScope','$routeParams', function($scope,$rootScope,$routeParams){
+            
+            $scope.type = $routeParams.type ? $routeParams.type : 1;
+            $scope.id = $routeParams.id ? $routeParams.id : 0;
+            $scope.itemSelected = {};
+            $scope.getDataCategory = function(){
+               var action = "";
+               if($scope.type == 1)
+                  action = "get-all-parent-category";
+               else if($scope.type == 2)
+                  action = "get-all-parent-category";
+               else if($scope.type == 3)
+                  action = "get-all-sub-category";
+               else if($scope.type == 4)
+                  action = "get-all-category";
+               else if($scope.type == 5)
+                  action = "get-all-course";
+               $scope.getJSON("{{domain}}/api?action=" + action , function(data){
+                    if(data.data){
+                        $scope.listCate = data.data;
+                        console.log(data);
+                    }
+                }, function(error){
+                    console.log(error);
+               });
+            }
+            $scope.getItem = function(){
+               if($scope.id != 0){
+                  $scope.getJSON("{{domain}}/api?action=" + action , function(data){
+                    if(data.data){
+                        $scope.listCate = data.data;
+                        console.log(data);
+                     }
+                   }, function(error){
+                       console.log(error);
+                  });
+               }
+            }
+            $scope.submitItem = function(){
+               if($scope.id != 0){ // update
+
+               }
+               else{ //insert
+
+               }
+            }
+            $scope.getDataCategory();
+
+
+            $rootScope.loadJS(STATIC_DOMAIN + "/admin/js/app.js?v=2");
+            $rootScope.loadJS(STATIC_DOMAIN + "/admin/js/vendor.js?v=2");
+         }]);
+
+
+
+
+         app.controller('chartsFlotCtr', ['$scope','$rootScope', function($scope,$rootScope){
+            function loadJS(file) {
+                // DOM: Create the script element
+                var jsElm = document.createElement("script");
+                // set the type attribute
+                jsElm.type = "application/javascript";
+                // make the script element load file
+                jsElm.src = file;
+                // finally insert the element to the body element in order to load the script
+                document.body.appendChild(jsElm);
+            }
+            loadJS(STATIC_DOMAIN + "/admin/js/app.js?v=2");
+            loadJS(STATIC_DOMAIN + "/admin/js/vendor.js?v=2");
+         }]);
+
+         app.controller('chartsMorrisCtr', ['$scope','$rootScope', function($scope,$rootScope){
+            
+         }]);
+
+         app.controller('errorCtr', ['$scope','$rootScope', function($scope,$rootScope){
+            
+         }]);
+
+      </script>
+   </body>
+</html>

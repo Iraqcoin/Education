@@ -13,7 +13,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -45,9 +48,16 @@ public class ParentCategoryModel extends BaseModel<ParentCategoryDTO> {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 int parent_cate_id = rs.getInt("sub");
+                String desc = rs.getString("desc");
+                Date date = rs.getDate("createDate");
+                DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                String createDate = formatter.format(date);
                 ParentCategoryDTO dto = new ParentCategoryDTO();
+                dto.setId(id);
                 dto.setName(name);
                 dto.setSub(parent_cate_id);
+                dto.setDescription(desc);
+                dto.setCreateDate(createDate);
                 data.add(dto);
             }
         } catch (Exception e) {
@@ -77,9 +87,15 @@ public class ParentCategoryModel extends BaseModel<ParentCategoryDTO> {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 int parent_cate_id = rs.getInt("sub");
+                String desc = rs.getString("desc");
+                Date date = rs.getDate("createDate");
+                DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                String createDate = formatter.format(date);
                 ParentCategoryDTO dto = new ParentCategoryDTO();
                 dto.setName(name);
                 dto.setSub(parent_cate_id);
+                dto.setDescription(desc);
+                dto.setCreateDate(createDate);
                 data.add(dto);
             }
         } catch (Exception e) {
@@ -110,9 +126,15 @@ public class ParentCategoryModel extends BaseModel<ParentCategoryDTO> {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 int parent_cate_id = rs.getInt("sub");
+                String desc = rs.getString("desc");
+                Date date = rs.getDate("createDate");
+                DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                String createDate = formatter.format(date);
                 ParentCategoryDTO dto = new ParentCategoryDTO();
                 dto.setName(name);
                 dto.setSub(parent_cate_id);
+                dto.setDescription(desc);
+                dto.setCreateDate(createDate);
                 data.add(dto);
             }
         } catch (Exception e) {
@@ -140,9 +162,15 @@ public class ParentCategoryModel extends BaseModel<ParentCategoryDTO> {
             if (rs.next()) {
                 String name = rs.getString("name");
                 int parent_cate_id = rs.getInt("sub");
+                String desc = rs.getString("desc");
+                Date date = rs.getDate("createDate");
+                DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                String createDate = formatter.format(date);
                 dto = new ParentCategoryDTO();
                 dto.setName(name);
                 dto.setSub(parent_cate_id);
+                dto.setDescription(desc);
+                dto.setCreateDate(createDate);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -158,13 +186,17 @@ public class ParentCategoryModel extends BaseModel<ParentCategoryDTO> {
     public int insertData(ParentCategoryDTO dto) {
         Connection dbConnection = null;
         PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO parent_category (name, sub) values(?, ?)";
+        String sql = "INSERT INTO parent_category (name,desc,createDate,sub) values(?, ?,?,?)";
         int generatedkey = -1;
         try {
             dbConnection = MysqlClient.getMysqlClient("main").getDbConnection();
             preparedStatement = dbConnection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, dto.getName());
             preparedStatement.setInt(2, dto.getSub());
+            preparedStatement.setString(3, dto.getDescription());
+            Date myDate = new Date();// formatter.parse(dto.getCreateDate());
+            java.sql.Date sqlDate = new java.sql.Date(myDate.getTime());
+            preparedStatement.setDate(4, sqlDate);
             preparedStatement.executeUpdate();
             ResultSet rs = preparedStatement.getGeneratedKeys();
             if (rs.next()) {
@@ -184,14 +216,15 @@ public class ParentCategoryModel extends BaseModel<ParentCategoryDTO> {
     public int updateData(ParentCategoryDTO dto) {
         Connection dbConnection = null;
         PreparedStatement preparedStatement = null;
-        String sql = "UPDATE  parent_category SET name=? , sub=?  WHERE id = ?";
+        String sql = "UPDATE  parent_category SET name=? , sub=? , desc = ? WHERE id = ?";
         int flag = -1;
         try {
             dbConnection = MysqlClient.getMysqlClient("main").getDbConnection();
             preparedStatement = dbConnection.prepareStatement(sql);
             preparedStatement.setString(1, dto.getName());
             preparedStatement.setInt(2, dto.getSub());
-            preparedStatement.setInt(3, dto.getId());
+            preparedStatement.setString(3, dto.getDescription());
+            preparedStatement.setInt(4, dto.getId());
             flag = preparedStatement.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -226,7 +259,26 @@ public class ParentCategoryModel extends BaseModel<ParentCategoryDTO> {
 
     @Override
     public int getTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection dbConnection = null;
+        PreparedStatement preparedStatement = null;
+        ParentCategoryDTO dto = null;
+        String selectSQL = "SELECT COUNT(*) FROM parent_category";
+        int total = 0;
+        try {
+            dbConnection = MysqlClient.getMysqlClient("main").getDbConnection();
+            preparedStatement = dbConnection.prepareStatement(selectSQL);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+               total = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (dbConnection != null) {
+                MysqlClient.getMysqlClient("main").releaseDbConnection(dbConnection);
+            }
+        }
+        return total;
     }
 
 }

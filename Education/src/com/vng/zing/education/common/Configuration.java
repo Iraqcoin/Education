@@ -14,9 +14,9 @@ import com.vng.zing.education.cache.ZCommonCache;
  */
 public class Configuration {
 
-    private static final String APP_DOMAIN = ZConfig.Instance.getString(Configuration.class, "app", "domain", "http://m.page.zaloapp.com/v2");
-    private static final String STATIC_DOMAIN = ZConfig.Instance.getString(Configuration.class, "app", "static-domain", "http://stc.m.page.zaloapp.com/v2");
-    private static final int NUM_ITEM_PER_PAGE = ZConfig.Instance.getInt(Configuration.class, "app", "paging-num", 20);
+    public static final String APP_DOMAIN = ZConfig.Instance.getString(Configuration.class, "app", "domain", "http://m.page.zaloapp.com/v2");
+    public static final String STATIC_DOMAIN = ZConfig.Instance.getString(Configuration.class, "app", "static-domain", "http://stc.m.page.zaloapp.com/v2");
+    public static final int NUM_ITEM_PER_PAGE = ZConfig.Instance.getInt(Configuration.class, "app", "paging-num", 20);
     private static final String APP_VERSION = ZConfig.Instance.getString(Configuration.class, "app", "app-version", "");
     private static final String APP_NAME = ZConfig.Instance.getString(Configuration.class, "app", "app-name", "");
     private static final int NUM_RENDER_ITEM = ZConfig.Instance.getInt(Configuration.class, "app", "render-num", 6);

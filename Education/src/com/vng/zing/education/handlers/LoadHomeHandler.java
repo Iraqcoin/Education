@@ -6,8 +6,11 @@
 package com.vng.zing.education.handlers;
 
 import com.vng.zing.education.cache.CheckSumCache;
-import com.vng.zing.education.model.HomeModel;
+import com.vng.zing.education.common.UtilHelper;
 import com.vng.zing.stats.Profiler;
+import com.vng.zing.stats.ThreadProfiler;
+import hapax.TemplateDataDictionary;
+import hapax.TemplateException;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -24,23 +27,22 @@ public class LoadHomeHandler extends BaseHandler {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Profiler.getThreadProfiler().push(this.getClass(), "LoadHomeHandler");
         try {
-            String language = getLanguage(req, resp);
-            String etag = CheckSumCache.getVersionHome(language.toLowerCase().trim());
-            String clientEtag = getClientETag(req);
-            if (clientEtag.equals(etag)) {
-                printHTMLNotModified(resp, clientEtag);
-                return;
-            }
-            byte[] data = HomeModel.getHomeHTML(language);
-            if(etag == null){
-                etag = CheckSumCache.getVersionHome(language.toLowerCase().trim());// get new etag
-            }
-            printWithGZip(data, etag, resp);
+            String data = buildHomeHTML(req,resp);
+            print(data, resp);
         } catch (Exception ex) {
             _logger.error(ex.getMessage(), ex);
         } finally {
             Profiler.getThreadProfiler().pop(this.getClass(), "LoadHomeHandler");
         }
-    }
+   
     
+}
+     public String buildHomeHTML(HttpServletRequest req, HttpServletResponse resp) throws TemplateException, IOException {
+        ThreadProfiler profiler = Profiler.getThreadProfiler();
+        profiler.push(LoadHomeHandler.class, "buildHomeHTML");
+        TemplateDataDictionary layout = getDictionary();
+        String result =  applyTemplate(layout, "index");
+        profiler.pop(LoadHomeHandler.class, "buildHomeHTML");
+        return result;
+    }
 }

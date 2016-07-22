@@ -6,7 +6,6 @@
 package com.vng.zing.education.cache;
 
 import com.vng.zing.education.common.ZingHelper;
-import com.vng.zing.education.model.HomeModel;
 import com.vng.zing.logger.ZLogger;
 
 import java.util.Calendar;
@@ -57,7 +56,7 @@ public class CheckSumCache {
             logger.info("updateCacheHome");
             String[] languages = {"vi", "en", "my"};
             for (String language : languages) {
-                byte[] data = HomeModel.buildHomeHTML(language);
+                byte[] data = null;//HomeModel.buildHomeHTML(language);
                 setCacheHome(language, data);
             }
         } catch (Exception ex) {

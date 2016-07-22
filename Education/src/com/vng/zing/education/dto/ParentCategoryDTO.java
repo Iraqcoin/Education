@@ -11,8 +11,17 @@ package com.vng.zing.education.dto;
  */
 public class ParentCategoryDTO extends BaseDTO{
     private int sub;
+    private String createDate;
 
     public ParentCategoryDTO() {
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
     }
 
     public ParentCategoryDTO(int sub) {

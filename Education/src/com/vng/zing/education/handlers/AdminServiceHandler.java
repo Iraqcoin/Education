@@ -37,6 +37,7 @@ public class AdminServiceHandler extends BaseHandler {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = HReqParam.getString(req, "action", "");
+        
         switch (action) {
             case "get-parent-category":
                 getDataPaging(req, resp, ParentCategoryModel.getInstances());
@@ -86,6 +87,7 @@ public class AdminServiceHandler extends BaseHandler {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = HReqParam.getString(req, "action", "");
         String data = HReqParam.getString(req, "data", "");
+       
         Gson gson = new Gson();
         switch (action) {
             case "post-parent-category":
@@ -152,8 +154,20 @@ public class AdminServiceHandler extends BaseHandler {
         int page = HReqParam.getInt(req, "page", 1);
         int maxRow = HReqParam.getInt(req, "maxRow", 10);
         int offset = (page - 1) * maxRow;
+        int parentID = HReqParam.getInt(req, "parentID", -1);
+        int admin = HReqParam.getInt(req, "admin",0);
+        if (parentID != -1) {
+            List<? extends BaseDTO> data = model.getScileDataFromParentID(parentID, offset, maxRow);
+            JsonObject ress = parseObjectToJson(data);
+            printJSON(ress, res);
+            return;
+        }
         List<? extends BaseDTO> data = model.getScileData(offset, maxRow);
-        JsonObject ress = parseObjectToJson(data);
+        JsonObject ress = null;
+        if(admin == 0)
+           ress = parseObjectToJson(data);
+        else
+            ress = parseObjectToJson(data, model.getTotal());
         printJSON(ress, res);
     }
 
@@ -176,6 +190,8 @@ public class AdminServiceHandler extends BaseHandler {
         int ids = model.deleteData(id);
         printJSON(parseErrorToJson(ids), res);
     }
+    
+    
 
     private JsonObject parseObjectToJson(List<? extends BaseDTO> dto) {
         JsonObject results = new JsonObject();
@@ -186,6 +202,19 @@ public class AdminServiceHandler extends BaseHandler {
         JsonElement data = gson.toJsonTree(dto, new TypeToken<List<?>>() {
         }.getType());
         results.addProperty("error", 0);
+        results.add("data", data.getAsJsonArray());
+        return results;
+    }
+    private JsonObject parseObjectToJson(List<? extends BaseDTO> dto,  int total) {
+        JsonObject results = new JsonObject();
+        if (dto == null) {
+            results.addProperty("error", -1);
+        }
+        Gson gson = new Gson();
+        JsonElement data = gson.toJsonTree(dto, new TypeToken<List<?>>() {
+        }.getType());
+        results.addProperty("error", 0);
+        results.addProperty("total", total);
         results.add("data", data.getAsJsonArray());
         return results;
     }

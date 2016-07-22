@@ -8,15 +8,15 @@
     
       <title>Learn by doing | Tony Education</title>
     
-      <link href="css/index.css?v=1" media="screen" rel="stylesheet" type="text/css">
-      <link href="css/css.css" media="screen" rel="stylesheet" type="text/css">
-      <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+      <link href="{{static_domain}}/css/index.css?v=2" media="screen" rel="stylesheet" type="text/css">
+      <link href="{{static_domain}}/css/css.css?v=2" media="screen" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="{{static_domain}}/font-awesome/css/font-awesome.min.css">
    </head>
    <body class="home home-show " data-page="home:show">
       <header class="header row row--a has-dropdown js-navToggle-container" role="banner">
          <div class="cell header-cell">
             <div class="header-item prm" itemscope="" itemtype="http://schema.org/Organization">
-               <a href="https://www.codeschool.com/" class="brand-link" itemprop="url"><img alt="Code School" class="brand-img" itemprop="logo" src="index/logo-code-school-ps.svg">
+               <a href="https://www.codeschool.com/" class="brand-link" itemprop="url"><img alt="Code School" class="brand-img" itemprop="logo" src="{{static_domain}}/index/logo-code-school-ps.svg">
                </a>
             </div>
             <div class="header-item header-item--grow sentry" id="main_nav">
@@ -70,7 +70,7 @@
             </div>
          </div>
       </header>
-      <div class="js-skipToContent-content" tabindex="-1"></div>
+      <div class="js-skipToContent-content" ></div>
       <main class="content" role="main" ng-view>
         
       </main>
@@ -155,7 +155,7 @@
                                  </a>
                               </li>
                            </ul>
-                           <a href="https://itunes.apple.com/us/app/code-school/id927194858?mt=8" class="db mbm"><img alt="Download in the App Store" class="db" height="40" src="index/logo-app-store.svg" width="135">
+                           <a href="https://itunes.apple.com/us/app/code-school/id927194858?mt=8" class="db mbm"><img alt="Download in the App Store" class="db" height="40" src="{{static_domain}}/index/logo-app-store.svg" width="135">
                            </a>
                         </div>
                      </div>
@@ -163,7 +163,7 @@
                   </div>
                   <div class="g-b g-b--m--1of2">
                      <div class="footer-about">
-                        <img alt="Code School" class="db mbm" height="42" src="index/logo-code-school-ps-gray.svg" width="200">
+                        <img alt="Code School" class="db mbm" height="42" src="{{static_domain}}/index/logo-code-school-ps-gray.svg" width="200">
                         <p class="pts tss">
                            <strong>Code School</strong> teaches web technologies in the
                            comfort of your browser with video lessons, coding challenges,
@@ -172,7 +172,7 @@
                         <div class="mbm mbl--m">
                            <a href="https://www.codeschool.com/about" class="link link--underline tss">Learn More</a>
                         </div>
-                        <a href="http://www.pluralsight.com/" aria-label="Leave to pluralsight.com" data-placement="right" rel="tooltip" title="" data-original-title="Visit pluralsight.com"><img alt="Pluralsight" class="db mbs mbf--m" src="index/logo-pluralsight-gray.svg">
+                        <a href="http://www.pluralsight.com/" aria-label="Leave to pluralsight.com" data-placement="right" rel="tooltip" title="" data-original-title="Visit pluralsight.com"><img alt="Pluralsight" class="db mbs mbf--m" src="{{static_domain}}/index/logo-pluralsight-gray.svg">
                         </a>
                         <p class="footer-copyright footer-copyright--south">© 2016 Code School LLC. Crafted lovingly in Orlando, Florida.</p>
                      </div>
@@ -184,11 +184,16 @@
   
       <style>body.tablesorter-disableSelection { -ms-user-select: none; -moz-user-select: -moz-none;-khtml-user-select: none; -webkit-user-select: none; user-select: none; }.tablesorter-resizable-container { position: relative; height: 1px; }.tablesorter-resizable-handle { position: absolute; display: inline-block; width: 8px;top: 1px; cursor: ew-resize; z-index: 3; user-select: none; -moz-user-select: none; }</style>
      
-     <script type="text/javascript" src="js/angular.min.js"></script>
-     <script type="text/javascript" src="js/angular-route.min.js"></script>
-     <script type="text/javascript" src="js/lodash.min.js"></script>
-     <script type="text/javascript" src="js/app/index.js?v=1"></script>
-     <script type="text/javascript" src="js/app/detail.js"></script>
-     <script type="text/javascript" src="js/app/tutorial.js"></script>
+     <script>
+        var STATIC_DOMAIN = "{{static_domain}}";
+        var DOMAIN = "{{domain}}";
+     </script>
+     <script type="text/javascript" src="{{static_domain}}/js/angular.min.js"></script>
+     <script type="text/javascript" src="{{static_domain}}/js/angular-route.min.js"></script>
+     <script type="text/javascript" src="{{static_domain}}/js/lodash.min.js"></script>
+     <script type="text/javascript" src="{{static_domain}}/js/app/index.js?v=3"></script>
+     <script type="text/javascript" src="{{static_domain}}/js/app/detail.js?v=2"></script>
+     <script type="text/javascript" src="{{static_domain}}/js/app/tutorial.js?v=2"></script>
+     
    </body>
 </html>

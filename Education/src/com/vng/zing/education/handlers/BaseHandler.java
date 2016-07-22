@@ -117,7 +117,7 @@ public class BaseHandler extends HttpServlet {
     }
 
     public static String applyTemplate(TemplateDataDictionary dic, String tplName) throws TemplateException {
-        TemplateLoader templateLoader = TemplateResourceLoader.create("com/vng/zing/zoadirectory/handlers/view/");
+        TemplateLoader templateLoader = TemplateResourceLoader.create("com/vng/zing/education/view/");
         Template template = templateLoader.getTemplate(tplName);
         return template.renderToString(dic);
     }
