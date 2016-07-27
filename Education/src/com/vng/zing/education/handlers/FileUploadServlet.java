@@ -5,9 +5,10 @@
  */
 package com.vng.zing.education.handlers;
 
-
 import com.vng.zing.common.HReqParam;
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.ByteBuffer;
 
 import java.util.List;
@@ -27,29 +28,76 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  */
 public class FileUploadServlet extends BaseHandler {
 
+    // location to store file uploaded
+    public static final String UPLOAD_DIRECTORY = System.getProperty("user.dir") +File.separator+ "public" + File.separator + "image";
+
+    // upload settings
+    private static final int MEMORY_THRESHOLD = 1024 * 1024 * 3;  // 3MB
+    private static final int MAX_FILE_SIZE = 1024 * 1024 * 40; // 40MB
+    private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 50; // 50MB
+
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-         int id = HReqParam.getInt(req, "id",0);
-          if(id == 0)
-              return;
-         byte[] data = null;
-        if (ServletFileUpload.isMultipartContent(req)) {
-            try {
-                FileItemFactory factory = new DiskFileItemFactory();
-                ServletFileUpload upload = new ServletFileUpload(factory);
-                List items = upload.parseRequest(req);
-                for (Object obj : items) {
-                    FileItem fileItem = (FileItem) obj;
-                    if ("file".equals(fileItem.getFieldName()) && fileItem.getSize() > 0) {
-                        data = fileItem.get();
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // checks if the request actually contains upload file
+        if (!ServletFileUpload.isMultipartContent(request)) {
+            // if not, we stop here
+            PrintWriter writer = response.getWriter();
+            writer.println("Error: Form must has enctype=multipart/form-data.");
+            writer.flush();
+            return;
+        }
+
+        // configures upload settings
+        DiskFileItemFactory factory = new DiskFileItemFactory();
+        // sets memory threshold - beyond which files are stored in disk
+        factory.setSizeThreshold(MEMORY_THRESHOLD);
+        // sets temporary location to store files
+        factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
+
+        ServletFileUpload upload = new ServletFileUpload(factory);
+
+        // sets maximum size of upload file
+        upload.setFileSizeMax(MAX_FILE_SIZE);
+
+        // sets maximum size of request (include file + form data)
+        upload.setSizeMax(MAX_REQUEST_SIZE);
+
+        // constructs the directory path to store upload file
+        // this path is relative to application's directory
+        String uploadPath =  File.separator + UPLOAD_DIRECTORY;
+
+        // creates the directory if it does not exist
+        File uploadDir = new File(uploadPath);
+        if (!uploadDir.exists()) {
+            uploadDir.mkdir();
+        }
+
+        try {
+            // parses the request's content to extract file data
+            @SuppressWarnings("unchecked")
+            List<FileItem> formItems = upload.parseRequest(request);
+
+            if (formItems != null && formItems.size() > 0) {
+                // iterates over form's fields
+                for (FileItem item : formItems) {
+                    // processes only fields that are not form fields
+                    if (!item.isFormField()) {
+                        String fileName = new File(item.getName()).getName();
+                        String filePath = uploadPath + File.separator + fileName;
+                        File storeFile = new File(filePath);
+
+                        // saves the file on disk
+                        item.write(storeFile);
+                        request.setAttribute("message",
+                                "Upload has been done successfully!");
                     }
                 }
-            } catch (FileUploadException ex) {
-               _logger.error(ex.getMessage() , ex);
             }
-            
+        } catch (Exception ex) {
+            request.setAttribute("message",
+                    "There was an error: " + ex.getMessage());
         }
-      
-    }
 
+    
+    }
 }

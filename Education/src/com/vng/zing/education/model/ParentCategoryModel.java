@@ -8,7 +8,6 @@ package com.vng.zing.education.model;
 import com.vng.zing.education.common.MysqlClient;
 import com.vng.zing.education.dto.BaseDTO;
 import com.vng.zing.education.dto.ParentCategoryDTO;
-import com.vng.zing.education.dto.SubCategoryDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -48,7 +47,7 @@ public class ParentCategoryModel extends BaseModel<ParentCategoryDTO> {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 int parent_cate_id = rs.getInt("sub");
-                String desc = rs.getString("desc");
+                String desc = rs.getString("description");
                 Date date = rs.getDate("createDate");
                 DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 String createDate = formatter.format(date);
@@ -87,11 +86,12 @@ public class ParentCategoryModel extends BaseModel<ParentCategoryDTO> {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 int parent_cate_id = rs.getInt("sub");
-                String desc = rs.getString("desc");
+                String desc = rs.getString("description");
                 Date date = rs.getDate("createDate");
                 DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 String createDate = formatter.format(date);
                 ParentCategoryDTO dto = new ParentCategoryDTO();
+                dto.setId(id);
                 dto.setName(name);
                 dto.setSub(parent_cate_id);
                 dto.setDescription(desc);
@@ -126,11 +126,12 @@ public class ParentCategoryModel extends BaseModel<ParentCategoryDTO> {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 int parent_cate_id = rs.getInt("sub");
-                String desc = rs.getString("desc");
+                String desc = rs.getString("description");
                 Date date = rs.getDate("createDate");
                 DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 String createDate = formatter.format(date);
                 ParentCategoryDTO dto = new ParentCategoryDTO();
+                dto.setId(id);
                 dto.setName(name);
                 dto.setSub(parent_cate_id);
                 dto.setDescription(desc);
@@ -162,11 +163,12 @@ public class ParentCategoryModel extends BaseModel<ParentCategoryDTO> {
             if (rs.next()) {
                 String name = rs.getString("name");
                 int parent_cate_id = rs.getInt("sub");
-                String desc = rs.getString("desc");
+                String desc = rs.getString("description");
                 Date date = rs.getDate("createDate");
                 DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 String createDate = formatter.format(date);
                 dto = new ParentCategoryDTO();
+                dto.setId(id);
                 dto.setName(name);
                 dto.setSub(parent_cate_id);
                 dto.setDescription(desc);
@@ -186,7 +188,7 @@ public class ParentCategoryModel extends BaseModel<ParentCategoryDTO> {
     public int insertData(ParentCategoryDTO dto) {
         Connection dbConnection = null;
         PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO parent_category (name,desc,createDate,sub) values(?, ?,?,?)";
+        String sql = "INSERT INTO parent_category (name,sub,description,createDate) values(?, ?,?,?)";
         int generatedkey = -1;
         try {
             dbConnection = MysqlClient.getMysqlClient("main").getDbConnection();
@@ -216,7 +218,7 @@ public class ParentCategoryModel extends BaseModel<ParentCategoryDTO> {
     public int updateData(ParentCategoryDTO dto) {
         Connection dbConnection = null;
         PreparedStatement preparedStatement = null;
-        String sql = "UPDATE  parent_category SET name=? , sub=? , desc = ? WHERE id = ?";
+        String sql = "UPDATE  parent_category SET name=? ,  sub=? , description=? WHERE id = ?";
         int flag = -1;
         try {
             dbConnection = MysqlClient.getMysqlClient("main").getDbConnection();

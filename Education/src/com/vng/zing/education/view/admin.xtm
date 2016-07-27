@@ -25,7 +25,7 @@
       </script>
    </head>
    <body>
-      <div class="main-wrapper">
+      <div class="main-wrapper" ng-controller="wrapperCtr">
          <div class="app" id="app">
             <header class="header">
                <div class="header-block header-block-collapse hidden-lg-up"> <button class="collapse-btn" id="sidebar-collapse-btn">
@@ -119,35 +119,20 @@
                   </div>
                   <nav class="menu">
                      <ul class="nav metismenu" id="sidebar-menu">
-                        <li class="active">
+
+                        <li ng-class="{'active':rootSelected==0}">
                            <a href="#/"> <i class="fa fa-home"></i> Dashboard </a>
                         </li>
-                        <li>
+                        <li ng-class="{'active':rootSelected==1}">
                            <a href=""> <i class="fa fa-th-large"></i> Items Manager <i class="fa arrow"></i> </a>
                            <ul>
-                              <li> <a href="#item/1">
-                                 Parent Category
-                                 </a> 
-                              </li>
-                              <li> <a href="#item/2">
-                                 SubCategory
-                                 </a> 
-                              </li>
-                              <li> <a href="#item/3">
-                                 Category
-                                 </a> 
-                              </li>
-                              <li> <a href="#item/4">
-                                 Course
-                                 </a> 
-                              </li>
-                              <li> <a href="#item/5">
-                                 Course Details
+                              <li ng-repeat="metric in metrics[1].sub" ng-class="{'active':metric.isSelected}"> <a href="[[metric.url]]" ng-click="changeSelectedMenu(metric)">
+                                 [[metric.name]]
                                  </a> 
                               </li>
                            </ul>
                         </li>
-                        <li>
+                        <li ng-class="{'active':rootSelected==2}">
                            <a href=""> <i class="fa fa-bar-chart"></i> Charts <i class="fa arrow"></i> </a>
                            <ul>
                               <li> <a href="#charts-flot">
@@ -162,7 +147,7 @@
                         </li>
                        
                       
-                        <li>
+                        <li ng-class="{'active':rootSelected==3}">
                            <a href=""> <i class="fa fa-file-text-o"></i> Pages <i class="fa arrow"></i> </a>
                            <ul>
                               <li> <a href="login.html">
@@ -280,6 +265,7 @@
                   </ul>
                </div>
             </footer>
+
             <div class="modal fade" id="modal-media">
                <div class="modal-dialog modal-lg">
                   <div class="modal-content">
@@ -292,19 +278,29 @@
                      </div>
                      <div class="modal-body modal-tab-container">
                         <ul class="nav nav-tabs modal-tabs" role="tablist">
-                           <li class="nav-item"> <a class="nav-link" href="#gallery" data-toggle="tab" role="tab">Gallery</a> </li>
-                           <li class="nav-item"> <a class="nav-link active" href="#upload" data-toggle="tab" role="tab">Upload</a> </li>
+                           <li class="nav-item"> <a class="nav-link" href="" ng-click="isGallery=true;" data-toggle="tab" role="tab">Gallery</a> </li>
+                           <li class="nav-item"> <a class="nav-link active" href="" ng-click="isGallery=false;" data-toggle="tab" role="tab">Upload</a> </li>
                         </ul>
                         <div class="tab-content modal-tab-content">
-                           <div class="tab-pane fade" id="gallery" role="tabpanel">
+                           <div class="tab-pane fade" id="gallery" ng-class="{'active':isGallery}" role="tabpanel" ng-show="isGallery" style="opacity:1">
                               <div class="images-container">
-                                 <div class="row"> </div>
+                                 <div class="row" style="display: block;">
+                                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3" ng-repeat="img in images">
+
+                                          <div ng-class="{'active':imageFake[$index].isSelected}" style="display: block;" class="image-container" ng-click="choseImage($index,img)">
+                                             <div class="image" style="background-image:url('{{static_domain}}/image/[[img]]');margin:auto;width: 100px;height: 100px;"></div>
+                                          </div>
+                                          
+                                    </div>
+                                 </div>
+                                 
                               </div>
                            </div>
-                           <div class="tab-pane fade active in" id="upload" role="tabpanel">
+
+                           <div class="tab-pane fade active in" id="upload" role="tabpanel" ng-hide="isGallery" ng-class="{'active':isGallery==false}">
                               <div class="upload-container">
                                  <div id="dropzone">
-                                    <form action="/" method="POST" enctype="multipart/form-data" class="dropzone needsclick dz-clickable" id="demo-upload">
+                                    <form action="/fileUpload" method="POST" enctype="multipart/form-data" class="dropzone needsclick dz-clickable" id="demo-upload">
                                        <div class="dz-message-block">
                                           <div class="dz-message needsclick"> Drop files here or click to upload. </div>
                                        </div>
@@ -320,6 +316,8 @@
                </div>
                <!-- /.modal-dialog -->
             </div>
+
+            
             <!-- /.modal -->
             <div class="modal fade" id="confirm-modal">
                <div class="modal-dialog" role="document">
@@ -353,13 +351,16 @@
        <script>
         var STATIC_DOMAIN = "{{static_domain}}";
       </script>
-      <script src="{{static_domain}}/admin/js/vendor.js?v=1"></script>
-      <script src="{{static_domain}}/admin/js/app.js?v=1"></script>
+      <script src="{{static_domain}}/admin/js/vendor.js?v=3"></script>
+      <script src="{{static_domain}}/admin/js/app.js?v=3"></script>
       <script type="text/javascript" src="{{static_domain}}/js/angular.min.js"></script>
       <script type="text/javascript" src="{{static_domain}}/js/angular-route.min.js"></script>
       <script type="text/javascript" src="{{static_domain}}/js/lodash.min.js"></script>
+
+       <script src="http://cdn.tinymce.com/4/tinymce.min.js"></script>
      
       <script type="text/javascript">
+         tinymce.init({ selector:'textarea.editor' });
          var app = angular.module('main-app', ['ngRoute']);
          app.config(function($interpolateProvider, $httpProvider) {
             $interpolateProvider.startSymbol('[[').endSymbol(']]');
@@ -407,7 +408,94 @@
                         redirectTo: '/'
                     });
         }]);
+         app.controller('wrapperCtr', ['$scope','$rootScope','$http', function($scope,$rootScope,$http){
+            $scope.metrics = [
+               {id:1,name:"Dashboard",isSelected:true},
+               {id:2,name:"Items Manager",isSelected:false,sub:[
+                  {id:1,name:"Parent Category",isSelected:false,url:"#item/1"},
+                  {id:2,name:"SubCategory",isSelected:false,url:"#item/2"},
+                  {id:3,name:"Category",isSelected:false,url:"#item/3"},
+                  {id:4,name:"Course",isSelected:false,url:"#item/4"},
+                  {id:5,name:"Course Details",isSelected:false,url:"#item/5"}
+               ]},
+
+               {id:3,name:"Charts",isSelected:false,sub:[
+                  {id:1,name:"Flot Charts",isSelected:false,url:"#charts-flot"},
+                  {id:2,name:"Morris Charts",isSelected:false,url:"#charts-morris"}
+               ]},
+               {id:4,name:"Pages",isSelected:false}
+            ];
+            $scope.images = [];
+            $rootScope.rootSelected = 0;
+            $scope.changeSelectedMenu = function(metric){
+               $rootScope.rootSelected = 1;
+               for(var x in $scope.metrics[1].sub){
+                  $scope.metrics[1].sub[x].isSelected = false;
+               }
+               metric.isSelected = true;
+               return true;
+            }
+            $scope.isGallery = false;
+            $scope.imagesSelected = [];
+            $scope.imageFake = [];
+            $scope.choseImage = function(index,img){
+               $scope.imageFake[index].isSelected = !$scope.imageFake[index].isSelected;
+               console.log($scope.imageFake[index]);
+               
+               if($scope.imageFake[index].isSelected)
+                  $scope.imagesSelected.push(img);
+               else{
+                  if($scope.imagesSelected.indexOf(img) > 0)
+                     console.log("delete");
+               }
+               console.log($scope.imagesSelected);
+            }
+            $scope.applyImage = function(){
+               console.log($scope.imagesSelected);
+            }
+            $scope.getDataList = function(){
+               $scope.getJSON("{{domain}}/api?action=get-all-image-name" , function(data){
+                    if(data){
+                        $scope.images = data;
+                        for(var x in data){
+                           var obj = {id:x,name:data[x],isSelected:false};
+                           $scope.imageFake.push(obj);
+                        }
+                    }
+                }, function(error){
+                    console.log(error);
+                });
+            }
+            $scope.cacheAjax = {};
+            $scope.getJSON = function (url, success , error) {
+                //Get from cache
+                if (typeof $scope.cacheAjax[url] != "undefined") {
+                    //console.log("getfromCache");
+                    success($scope.cacheAjax[url]);
+                    return;
+                }
+                $http.get(url)
+                    .success(function (data) {
+                        if (typeof data !== "undefined") {
+                            var tmp;
+                            tmp = angular.copy(data, tmp);
+                            $scope.cacheAjax[url] = tmp;
+                            try {
+                                success(data);
+                            } catch (e) {
+                                console.log("error");
+                            }
+                        }
+                    }).error(function(){
+                        console.log("Get JSON Ajax Fail: " + url);
+                        error("Get JSON Ajax Fail: " + url);
+                    });
+            }//end GetJson
+            $scope.getDataList();
+
+         }]);
          app.controller('adminDashboardCtr', ['$scope','$rootScope', function($scope,$rootScope){
+            $rootScope.rootSelected = 0;
             $rootScope.loadJS = function(file) {
                 // DOM: Create the script element
                 var jsElm = document.createElement("script");
@@ -418,8 +506,8 @@
                 // finally insert the element to the body element in order to load the script
                 document.body.appendChild(jsElm);
             }
-            $rootScope.loadJS(STATIC_DOMAIN + "/admin/js/app.js?v=2");
-            $rootScope.loadJS(STATIC_DOMAIN + "/admin/js/vendor.js?v=2");
+            $rootScope.loadJS(STATIC_DOMAIN + "/admin/js/app.js?v=3");
+            $rootScope.loadJS(STATIC_DOMAIN + "/admin/js/vendor.js?v=3");
          }]);
 
 
@@ -437,19 +525,19 @@
             $scope.listData = [];
             $scope.listCate = [];
 
-            $scope.getActionName = function(){
+            $scope.getActionName = function(_prefix){
                if($scope.metricSelectedId == 1)
-                  return "get-parent-category";
+                  return _prefix + "parent-category";
                else if($scope.metricSelectedId == 2)
-                  return "get-sub-category";
+                  return _prefix + "sub-category";
                else if($scope.metricSelectedId == 3)
-                  return "get-category";
+                  return _prefix + "category";
                else if($scope.metricSelectedId == 4)
-                  return "get-course";
+                  return _prefix + "course";
                else if($scope.metricSelectedId == 5)
-                  return "get-course-detail";
+                  return _prefix + "course-detail";
                else
-                  return "get-parent-category";
+                  return _prefix + "parent-category";
             }
             $scope.getDataCategory = function(){
                var action = "";
@@ -473,6 +561,21 @@
                     console.log(error);
                });
             }
+            $scope.removeItem = function(id){
+               //$('#confirm-modal').show();
+               console.log($scope.getActionName('delete-') + "__" + id);
+               var request = $http({
+                     method : "post",
+                     url : "{{domain}}/api?action=" + $scope.getActionName('delete-'),
+                     params: { id : id}
+               });
+               request.success(function(data) {
+                  if(data){
+                     if(data.error >= 0)
+                        alert("Success");
+                  }
+               });
+            }
             $scope.getParentCategory = function(id){
                for(var x in $scope.listCate){
                   if($scope.listCate[x].id == id)
@@ -482,7 +585,7 @@
             }
             $scope.getDataList = function(){
                $scope.showLoading = true;
-               var action = $scope.getActionName();
+               var action = $scope.getActionName("get-");
                $scope.getJSON("{{domain}}/api?action=" + action + "&page=" + $scope.currentPage + "&admin=1" , function(data){
                     if(data.data){
                         $scope.listData = data.data;
@@ -494,6 +597,10 @@
                 }, function(error){
                     console.log(error);
                 });
+            }
+            $scope.showEdit = function(data){
+               console.log("showEdit");
+               data.active = !data.active;
             }
 
             $scope.getDataReportShowed = function() {
@@ -566,11 +673,59 @@
             $rootScope.loadJS(STATIC_DOMAIN + "/admin/js/app.js?v=2");
          }]);
 
-         app.controller('editItemCtr', ['$scope','$rootScope','$routeParams', function($scope,$rootScope,$routeParams){
+
+         app.controller('editItemCtr', ['$scope','$rootScope','$routeParams','$http', function($scope,$rootScope,$routeParams,$http){
             
             $scope.type = $routeParams.type ? $routeParams.type : 1;
             $scope.id = $routeParams.id ? $routeParams.id : 0;
             $scope.itemSelected = {};
+            $scope.relatedCourse = [];
+            $scope.listTags = [];
+            $scope.listTagSelected = [];
+            $scope.listRLCourseSelected = [];
+
+            $scope.updateVideo = false;
+            $scope.updateTutorial = false;
+            $scope.createVideo = false;
+            $scope.createTutorial = false;
+            $scope.detail = {};
+            $scope.detailUpdate = false;
+            $scope.showBox = function(i,j){
+               if(i == 0 ){
+                  $scope.createVideo = true;
+                  $scope.createTutorial = false;
+               }else if(i == 1){
+                  $scope.createVideo = false;
+                  $scope.createTutorial = true;
+               }
+               if(j == 0){
+                  $scope.detail = {};
+                  $scope.detailUpdate = false;
+               }
+               else if(j == 1 && i == 0)
+                  $scope.detail = $scope.itemSelected.video;
+               else if(j == 1 && i == 1)
+                  $scope.detail = $scope.itemSelected.tutorial;
+               if($scope.detail > 0){
+                  $scope.detailUpdate = true;
+                  var tmp;
+                  if(i == 0)
+                     tmp = $scope.listVideo;
+                  if(i == 1)
+                     tmp = $scope.listTutorial;
+                  for(var x in tmp){
+                     if(tmp[x].id == $scope.detail)
+                        $scope.detail = tmp[x];
+                  }
+               }
+               console.log($scope.detail);
+            }
+            $scope.$watch('detail.content', function (newValue) {
+               console.log('detail.content');
+               console.log($scope.detail.content);
+               if($scope.detail.content != undefined && $scope.detail.content != "")
+                  tinymce.get('main-editor').setContent($scope.detail.content);
+            });
             $scope.getDataCategory = function(){
                var action = "";
                if($scope.type == 1)
@@ -579,44 +734,261 @@
                   action = "get-all-parent-category";
                else if($scope.type == 3)
                   action = "get-all-sub-category";
-               else if($scope.type == 4)
+               else if($scope.type == 4){
                   action = "get-all-category";
+               }
                else if($scope.type == 5)
                   action = "get-all-course";
                $scope.getJSON("{{domain}}/api?action=" + action , function(data){
                     if(data.data){
                         $scope.listCate = data.data;
-                        console.log(data);
+                        if($scope.type == 4){ 
+                           $scope.getJSON("{{domain}}/api?action=get-all-course" , function(data1){
+                             if(data1.data){
+                                 $scope.relatedCourse = data1.data;
+                                 $scope.getJSON("{{domain}}/api?action=get-all-tags" , function(data2){
+                                    if(data2.data){
+                                       $scope.listTags = data2.data;
+                                       $scope.getItem(); 
+
+                                    }
+                                 }, function(error){
+                                      console.log(error);
+                                 });
+                             }
+                            }, function(error){
+                                console.log(error);
+                           });
+                        }else{
+                           $scope.getItem();
+                        }
                     }
                 }, function(error){
                     console.log(error);
                });
             }
+            $scope.getTagName = function(id){
+               for(var x in $scope.listTags){
+                  if($scope.listTags[x].id == id)
+                     return $scope.listTags[x].name;
+               }
+            }
+            $scope.addTagItem = function(type,id){
+               id = id + "";
+               console.log(id);
+               console.log($scope.listTagSelected);
+               if(type == 0){
+                  if($scope.listTagSelected.indexOf(id) < 0)
+                     $scope.listTagSelected.push(id);
+               }
+               else if(type == 1) {// course
+                  if($scope.listRLCourseSelected.indexOf(id) < 0)
+                     $scope.listRLCourseSelected.push(id);
+               }
+            }
+            $scope.removeSelected = function(type,value){
+               value = value + "";
+               if(type == 0) {// tag
+                  var index = $scope.listTagSelected.indexOf(value);
+                  if(index >=0)
+                     $scope.listTagSelected.splice(index, 1);  
+               }
+               else if(type == 1) {// course
+                  var index = $scope.listRLCourseSelected.indexOf(value);
+                  if(index >=0)
+                     $scope.listRLCourseSelected.splice(index, 1);  
+               }
+            }
+            $scope.getActionName = function(){
+               if($scope.type == 1)
+                  return "unique-parent-category";
+               else if($scope.type == 2)
+                  return "unique-sub-category";
+               else if($scope.type == 3)
+                  return "unique-category";
+               else if($scope.type == 4)
+                  return "unique-course";
+               else if($scope.type == 5)
+                  return "unique-course-detail";
+               else
+                  return "unique-parent-category";
+            }
             $scope.getItem = function(){
+               var action = $scope.getActionName();
                if($scope.id != 0){
-                  $scope.getJSON("{{domain}}/api?action=" + action , function(data){
+                  $scope.getJSON("{{domain}}/api?action=" + action + "&id=" + $scope.id , function(data){
                     if(data.data){
-                        $scope.listCate = data.data;
-                        console.log(data);
+                        var tmp;
+                        tmp = angular.copy(data, tmp);
+                        $scope.itemSelected = data.data[0];
+                        if($scope.type == 4){
+                           $scope.listTagSelected = $scope.convertData(tmp.data[0].tag_id,undefined);
+                           $scope.listRLCourseSelected = $scope.convertData(tmp.data[0].related_course_id,undefined);
+                        }
+                        if($scope.type == 5){
+                           $scope.itemSelected.level = $scope.itemSelected.level + "";
+                        }
                      }
                    }, function(error){
                        console.log(error);
                   });
                }
+               else
+                  $scope.itemSelected = {};
             }
             $scope.submitItem = function(){
-               if($scope.id != 0){ // update
-
+               var getAction = function(){
+                  var action = "";
+                  if($scope.type == 1)
+                     action = "parent-category";
+                  else if($scope.type == 2)
+                     action = "sub-category";
+                  else if($scope.type == 3)
+                     action = "category";
+                  else if($scope.type == 4)
+                     action = "course";
+                  else if($scope.type == 5)
+                     action = "course-detail";
+                  return action;
                }
-               else{ //insert
-
+               var pre_fix = "post-";
+               if($scope.id != 0){ // update
+                  pre_fix = "update-";
+               }
+               pre_fix = pre_fix + getAction();
+               console.log($scope.itemSelected);
+               var request = $http({
+                     method : "post",
+                     url : "{{domain}}/api?action=" + pre_fix,
+                     params: { data : $scope.itemSelected}
+               });
+               request.success(function(data) {
+                  if(data){
+                     if(data.error >= 0)
+                        alert("Success");
+                  }
+               });
+            }
+            $scope.convertData = function(string,array){
+                if(string != undefined){
+                    var array = string.split(",");
+                    return array;
+                }
+                else if(array != undefined){
+                    return array.join(",");
+                }
+            }
+            $scope.listVideo = [];
+            $scope.listTutorial = [];
+            $scope.changeSelected = function(i){
+               if(i == 0){
+                  if($scope.itemSelected.video!="" && $scope.itemSelected.video > 0){
+                     $scope.updateVideo = true;
+                  }else{
+                     $scope.updateVideo = false;
+                  }
+               }else{
+                  if($scope.itemSelected.tutorial!="" && $scope.itemSelected.tutorial > 0){
+                     $scope.updateTutorial = true;
+                  }else{
+                     $scope.updateTutorial = false;
+                  }
                }
             }
+            $scope.backDetail = function(){
+               $scope.createVideo = false;
+               $scope.createTutorial = false;
+               $scope.detail = {};
+               $scope.cacheAjax = {};
+               $scope.getDetails();
+            }
+            $scope.submitDetail = function(type){
+               console.log(tinymce.get('main-editor').getContent());
+               var tmp = 0;
+               if($scope.detail.link != undefined && $scope.detail.link != "" && $scope.detail.link.length > 10){
+                  tmp = 1;
+               }else{
+                  $scope.detail.content = tinymce.get('main-editor').getContent();
+               }
+               if($scope.detail.content != undefined && $scope.detail.content != ""){ 
+                  tmp = 2;
+               }
+               $scope.detail.type = tmp;
+               $scope.detail.course_detail_id = $scope.id;
+
+               console.log($scope.detail);
+               var request = $http({
+                        method : "post",
+                        url : "{{domain}}/api?action=post-detail",
+                        params: { data : $scope.detail,type:type,link:tmp}
+               });
+               request.success(function(data) {
+                  if(data){
+                     if(data.error >=0)
+                        alert("Success");
+                  }
+               });
+            }
+            $scope.getDetails = function(){
+               $scope.listVideo = [];
+               $scope.listTutorial = [];
+               if($scope.type == 5){
+                  if($scope.id != 0){
+                     console.log("get list detail");
+                     $scope.getJSON("{{domain}}/api?action=get-detail&page=1&maxRow=100&parentID=" + $scope.id , function(data){
+                       if(data.data){
+                           var tmp = data.data;
+                           for(var x in tmp){
+                              if(tmp[x].type == 1)
+                                 $scope.listVideo.push(tmp[x]);
+                              else if(tmp[x].type == 2)
+                                 $scope.listTutorial.push(tmp[x]);
+                           }
+                        }
+                      }, function(error){
+                          console.log(error);
+                     });
+                  }
+               }
+            }
+            $scope.cacheAjax = {};
+            $scope.getJSON = function (url, success , error) {
+                //Get from cache
+                if (typeof $scope.cacheAjax[url] != "undefined") {
+                    //console.log("getfromCache");
+                    success($scope.cacheAjax[url]);
+                    return;
+                }
+                $http.get(url)
+                    .success(function (data) {
+                        if (typeof data !== "undefined") {
+                            var tmp;
+                            tmp = angular.copy(data, tmp);
+                            $scope.cacheAjax[url] = tmp;
+                            try {
+                                success(data);
+                            } catch (e) {
+                                console.log("error");
+                            }
+                        }
+                    }).error(function(){
+                        console.log("Get JSON Ajax Fail: " + url);
+                        error("Get JSON Ajax Fail: " + url);
+                    });
+            }//end GetJson
             $scope.getDataCategory();
+            $scope.getDetails();
 
+            $scope.$on('$destroy', function() {
+             var tinyInstance = tinymce.get('main-editor');
+                if (tinyInstance) {
+                  tinyInstance.remove();
+                  tinyInstance = null;
+                }
+            });
+         
+            tinymce.init({ selector:'textarea.editor' });
 
-            $rootScope.loadJS(STATIC_DOMAIN + "/admin/js/app.js?v=2");
-            $rootScope.loadJS(STATIC_DOMAIN + "/admin/js/vendor.js?v=2");
          }]);
 
 
