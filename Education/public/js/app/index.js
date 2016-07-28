@@ -9,13 +9,16 @@
 		$routeProvider.when('/', {
 			templateUrl : '/static/views/main.html',
 			controller : 'eduMainController',
-		}).when('/learn/:name/:id', {
+		})
+		.when('/learn/:name/:id', {
 			templateUrl : '/static/views/detail.html',
 			controller : 'eduDetailController',
-		}).when('/tutorial/:id', {
+		})
+		.when('/tutorial/:name/:id', {
 			templateUrl : '/static/views/tutorial.html',
 			controller : 'eduTutorialController',
-		}).otherwise({
+		})
+		.otherwise({
 			redirectTo : '/'
 		});
 	}

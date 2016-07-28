@@ -23,6 +23,8 @@
 	function eduTutorialController($scope , $rootScope , $routeParams, $location, eduCourseFactory) {
 		$rootScope.static_domain = STATIC_DOMAIN;
 		$scope.listCourse = [];
+		$scope.id = $routeParams.id;
+		$scope.name = $routeParams.name.replace(/\s+/g, '-').toLowerCase();
 
 		eduCourseFactory.list($routeParams.id,listCourseCallback);
 		function listCourseCallback(error, dataCallback) {

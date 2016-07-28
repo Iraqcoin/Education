@@ -6,6 +6,7 @@ package com.vng.zing.education.servers;
 
 import com.vng.zing.education.handlers.AdminHomeHandler;
 import com.vng.zing.education.handlers.AdminServiceHandler;
+import com.vng.zing.education.handlers.CourseHandler;
 import com.vng.zing.education.handlers.FileUploadServlet;
 import com.vng.zing.education.handlers.LoadHomeHandler;
 import com.vng.zing.education.handlers.LoginHandler;
@@ -46,6 +47,7 @@ public class HServers {
         h.addFilter(holder, "/*", EnumSet.of(DispatcherType.REQUEST));
         h.addServlet(LoadHomeHandler.class, "/");
         h.addServlet(AdminHomeHandler.class, "/admin");
+        h.addServlet(CourseHandler.class, "/course/*");
         h.addServlet(AdminServiceHandler.class, "/api");
         h.addServlet(LoginHandler.class, "/user/sign_in");
         h.addServlet(RegisterHandler.class, "/user/sign_up");

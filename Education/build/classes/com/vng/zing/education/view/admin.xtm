@@ -278,8 +278,8 @@
                      </div>
                      <div class="modal-body modal-tab-container">
                         <ul class="nav nav-tabs modal-tabs" role="tablist">
-                           <li class="nav-item"> <a class="nav-link" href="" ng-click="isGallery=true;" data-toggle="tab" role="tab">Gallery</a> </li>
-                           <li class="nav-item"> <a class="nav-link active" href="" ng-click="isGallery=false;" data-toggle="tab" role="tab">Upload</a> </li>
+                           <li class="nav-item"> <a class="nav-link" ng-class="{'active':isGallery}" href="" ng-click="clickGallery()">Gallery</a> </li>
+                           <li class="nav-item"> <a class="nav-link active" ng-class="{'active':isGallery==false}" href="" ng-click="isGallery=false;">Upload</a> </li>
                         </ul>
                         <div class="tab-content modal-tab-content">
                            <div class="tab-pane fade" id="gallery" ng-class="{'active':isGallery}" role="tabpanel" ng-show="isGallery" style="opacity:1">
@@ -310,7 +310,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="modal-footer"> <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Insert Selected</button> </div>
+                     <div class="modal-footer"> <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <button type="button" ng-show="isGallery" data-dismiss="modal" class="btn btn-primary" ng-click="applyImage()">Insert Selected</button> </div>
                   </div>
                   <!-- /.modal-content -->
                </div>
@@ -439,19 +439,29 @@
             $scope.imagesSelected = [];
             $scope.imageFake = [];
             $scope.choseImage = function(index,img){
+               console.log($scope.imageFake[index]);
                $scope.imageFake[index].isSelected = !$scope.imageFake[index].isSelected;
                console.log($scope.imageFake[index]);
                
                if($scope.imageFake[index].isSelected)
                   $scope.imagesSelected.push(img);
                else{
-                  if($scope.imagesSelected.indexOf(img) > 0)
-                     console.log("delete");
+                  var index = $scope.imagesSelected.indexOf(img);
+                  if(index >=0)
+                    $scope.imagesSelected.splice(index, 1);  
                }
                console.log($scope.imagesSelected);
             }
             $scope.applyImage = function(){
-               console.log($scope.imagesSelected);
+               $scope.$broadcast('update_parent_controller', $scope.imagesSelected);
+               $scope.imagesSelected = [];
+               $scope.imageFake = [];
+               $scope.isGallery = false;
+            }
+            $scope.clickGallery = function(){
+               $scope.cacheAjax = {};
+               $scope.getDataList();
+               $scope.isGallery = true;
             }
             $scope.getDataList = function(){
                $scope.getJSON("{{domain}}/api?action=get-all-image-name" , function(data){
@@ -515,6 +525,7 @@
 
 
          app.controller('itemListCtr', ['$scope','$rootScope','$routeParams','$http', function($scope,$rootScope,$routeParams,$http){
+            $scope.isDropAction = false;
             $scope.metricSelect = [1,2,3,4];
             $scope.metricSelectedId = $routeParams.id ? $routeParams.id : 1;
             console.log($scope.metricSelectedId);
@@ -690,6 +701,13 @@
             $scope.createTutorial = false;
             $scope.detail = {};
             $scope.detailUpdate = false;
+
+            $scope.$on("update_parent_controller", function(event, message) {
+               $scope.itemSelected.link_icon = STATIC_DOMAIN + "/image/" + message[0];
+               if(message.length >=2)
+                  $scope.itemSelected.link_image_bgr = STATIC_DOMAIN + "/image/" + message[1];
+               console.log($scope.itemSelected);
+            });
             $scope.showBox = function(i,j){
                if(i == 0 ){
                   $scope.createVideo = true;
@@ -856,6 +874,11 @@
                   pre_fix = "update-";
                }
                pre_fix = pre_fix + getAction();
+               if($scope.type == 4){
+                  $scope.itemSelected.tag_id = $scope.convertData(undefined,$scope.listTagSelected);
+                  $scope.itemSelected.related_course_id = $scope.convertData(undefined,$scope.listRLCourseSelected);
+               }
+
                console.log($scope.itemSelected);
                var request = $http({
                      method : "post",
@@ -987,7 +1010,29 @@
                 }
             });
          
-            tinymce.init({ selector:'textarea.editor' });
+
+            tinymce.init({
+              selector: 'textarea.editor',
+              height: 500,
+              theme: 'modern',
+              plugins: [
+                'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime media nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools'
+              ],
+              toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+              toolbar2: 'print preview media | forecolor backcolor emoticons',
+              image_advtab: true,
+              templates: [
+                { title: 'Test template 1', content: 'Test 1' },
+                { title: 'Test template 2', content: 'Test 2' }
+              ],
+              content_css: [
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                '//www.tinymce.com/css/codepen.min.css'
+              ]
+             });
 
          }]);
 

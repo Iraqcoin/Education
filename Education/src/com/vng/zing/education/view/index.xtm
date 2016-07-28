@@ -35,7 +35,7 @@
                      <li class="nav-item nav-item--btn list-item mla">
                         <a href="https://www.codeschool.com/users/sign_up" class="btn btn--s btn--important--bordered list-item-link">Create Free Account</a>
                      </li>
-                     <li class="nav-item list-item"><a href="https://www.codeschool.com/users/sign_in" class="nav-item-link list-item-link">Sign in</a></li>
+                     <li class="nav-item list-item"><a href="#/course/1"  class="nav-item-link list-item-link">Sign in</a></li>
                      <li class="nav-item nav-item--search list-item">
                         <div class="search-trigger" data-target="#search-open" data-toggle="modal">
                            <span class="search-icn"><i class="fa fa-search" aria-hidden="true"></i></span>
@@ -71,6 +71,7 @@
          </div>
       </header>
       <div class="js-skipToContent-content" ></div>
+      
       <main class="content" role="main" ng-view>
         
       </main>
@@ -90,7 +91,7 @@
                   </div>
                   <div class="pbl">
                      <p class="mbf tcs tss">Already have an account?</p>
-                     <a href="https://www.codeschool.com/users/sign_in" class="link link--underline">Sign in</a>
+                     <a href="#/course/1" class="link link--underline">Sign in</a>
                   </div>
                </div>
             </div>

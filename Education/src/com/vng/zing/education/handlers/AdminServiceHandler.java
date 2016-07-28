@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -308,13 +309,6 @@ public class AdminServiceHandler extends BaseHandler {
 
                 try {
                     img = ImageIO.read(f);
-
-                    // you probably want something more involved here
-                    // to display in your UI
-                    System.out.println("image: " + f.getName());
-//                    System.out.println(" width : " + img.getWidth());
-//                    System.out.println(" height: " + img.getHeight());
-//                    System.out.println(" size  : " + f.length());
                     arr.add(f.getName());
                     
                 } catch (final IOException e) {

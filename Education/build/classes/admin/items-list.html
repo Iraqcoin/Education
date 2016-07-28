@@ -9,8 +9,8 @@
                   Add New
                   </a><!--
                      -->
-                  <div class="action dropdown">
-                     <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="action dropdown" ng-class="{'open':isDropAction}">
+                     <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="isDropAction=!isDropAction;">
                      More actions...
                      </button>
                      <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -227,7 +227,7 @@
                   <span></span>
                   </label> 
                </div>
-               <div class="item-col item-col-header fixed item-col-img md">
+               <div class="item-col item-col-header fixed item-col-img md" style="margin: auto;">
                   <div> <span>Media</span> </div>
                </div>
                <div class="item-col item-col-header item-col-title">
@@ -252,7 +252,7 @@
                   <span></span>
                   </label> 
                </div>
-               <div class="item-col fixed item-col-img md">
+               <div class="item-col fixed item-col-img md" style="margin: auto;">
                   <a href="#edit-item/[[metricSelectedId]]/[[data.id]]">
                      <div class="item-img rounded" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg)"></div>
                   </a>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)http://campus.codeschool.com/courses/powering-up-with-react/contents -->
+<html ng-app="eduCore">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}
+      </style>
+      <title ng-bind="pageTitle" class="ng-binding">Powering Up With React</title>
+     
+      <link href="{{static_domain}}/css/css" rel="stylesheet" type="text/css">
+      <link href="{{static_domain}}/css/course.css" rel="stylesheet" type="text/css">
+   </head>
+   <body page-class-hooks="" class="page page--contents" ng-controller="courseCtr">
+      <!--<base href="/courses/powering-up-with-react/">-->
+      <base href=".">
+      <div class="campus-course ng-isolate-scope is-beta">
+         <!-- ui-view-anchor -->
+         <div class="campus-course-view" ui-view="">
+            <div class="campus-course-window is-omnibar-enabled is-course-bar-enabled">
+               <!-- ngIf: optionalUi.courseBar -->
+               <header class="bar courseBar has-dropdown">
+                  <div class="bar-item bar-item--west">
+                     <div class="brand" itemscope="" itemtype="http://schema.org/Organization">
+                        <a itemprop="url" class="brand-link">
+                        <img itemprop="logo" class="brand-img" src="{{static_domain}}/index/logo.svg">
+                        </a>
+                     </div>
+                  </div>
+                  <div class="bar-item bar-item--east">
+                     <div class="has-menu session">
+                        <a href="http://www.codeschool.com/" class="session-logo">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="166.6" height="30" viewBox="-22.2 -3.9 166.6 30" enable-background="new -22.2 -3.9 166.6 30">
+                              <path fill="#4D4F50" class="session-logo-text" d="M24.5 16c-2.5 0-4.1-1.5-4.1-4.7s1.6-4.7 4.1-4.7c.9 0 1.9.3 2.7.8l1.6-3c-1.4-.7-3-1.1-4.6-1.1-4.8 0-8.3 3-8.3 8.1s3.5 8.1 8.3 8.1c1.4 0 2.7-.3 4-.8l-1.6-3c-.7.1-1.4.3-2.1.3zM94.1 10.7c.7 0 1.3.2 1.7.7l.9-2.6c-1-.6-2.1-.9-3.4-.9-3.3 0-6 2.1-6 5.7s2.7 5.7 6 5.7c1.3 0 2.4-.3 3.4-.9l-.9-2.6c-.4.5-1.1.7-1.7.7-1.4 0-2.5-.8-2.5-2.8 0-2.2 1.1-3 2.5-3zM34.7 7.9c-3.3 0-6 2.1-6 5.7s2.7 5.7 6 5.7 6-2.1 6-5.7-2.7-5.7-6-5.7zm0 8.8c-1 0-1.7-1.2-1.7-3.2s.8-3.2 1.7-3.2c1 0 1.7 1.2 1.7 3.2 0 2.1-.7 3.2-1.7 3.2zM117.8 7.9c-3.3 0-6 2.1-6 5.7s2.7 5.7 6 5.7 6-2.1 6-5.7-2.7-5.7-6-5.7zm0 8.8c-1 0-1.7-1.2-1.7-3.2s.8-3.2 1.7-3.2 1.7 1.2 1.7 3.2c.1 2.1-.7 3.2-1.7 3.2zM131.1 7.9c-3.3 0-6 2.1-6 5.7s2.7 5.7 6 5.7 6-2.1 6-5.7c.1-3.6-2.6-5.7-6-5.7zm0 8.8c-1 0-1.7-1.2-1.7-3.2s.8-3.2 1.7-3.2c1 0 1.7 1.2 1.7 3.2.1 2.1-.7 3.2-1.7 3.2zM62.9 16.6c-1 0-1.7-.6-2-1.8 3.6.1 5.8-1.4 5.8-3.5s-1.9-3.4-4.2-3.4c-3.3 0-6 2.1-6 5.7s2.4 5.7 5.7 5.7c3.2 0 5-2.4 5-2.4l-1.1-1.9s-1.6 1.6-3.2 1.6zm-.4-6.2c.6 0 .9.5.9 1.1 0 1-.6 1.5-2.6 1.6.1-1.8.8-2.7 1.7-2.7zM53.9 15v-12.3h-4.1v6.9c-.8-1.1-2-1.8-3.3-1.8-2.4 0-4.4 2.1-4.4 5.7s2 5.7 4.4 5.7c1.5 0 2.8-.8 3.6-2.1.5 1.5 1.8 2.1 3.2 2.1 1.4 0 2.1-.4 2.1-.4l.3-2.9c-.1 0-1.8 1-1.8-.9zm-5.8 1.6c-1 0-1.7-1.1-1.7-3s.8-3 1.7-3c1 0 1.7 1.1 1.7 3s-.8 3-1.7 3zM109.1 15v-4.1c0-1.8-.6-3-2.6-3-1.6 0-3 .8-3.7 2.1v-7.3h-4.1v16.1h4.1v-3.8c0-3.5 1.1-4.5 1.7-4.5.4 0 .7.3.7 1.1v3.8c0 2.8 1.6 3.8 3.4 3.8 1.4 0 2.1-.4 2.1-.4l.3-2.9c-.1 0-1.9.8-1.9-.9zM142.7 15v-12.3h-4.1v12.7c0 2.8 1.6 3.8 3.4 3.8 1.4 0 2.1-.4 2.1-.4l.3-2.9s-1.7 1-1.7-.9zM81.7 9.4c-2.5-.9-3.1-1.2-3.1-2s.5-1.2 1.4-1.2c2 0 4.5 1.4 4.5 1.4l1.1-2.7s-1.9-1.7-5.4-1.7c-3.8 0-5.8 2-5.8 4.7 0 2 1 3.8 4.1 4.8 2.5.8 2.9 1.4 2.9 2.2 0 1-.7 1.4-1.8 1.4-2.3 0-5-1.8-5-1.8l-1.4 2.7s2.7 2.2 6.4 2.2c4 0 6.2-2 6.2-5 .1-2.3-.5-3.7-4.1-5z"></path>
+                              <g fill="#4CADC1">
+                                 <path d="M-5.6 3.1v3.8l4.4 4.2-4.4 4.1v3.8l8.5-7.9zM-8.9 15.2l-4.3-4.1 4.3-4.2v-3.8l-8.4 8 8.4 7.9z"></path>
+                              </g>
+                              <path fill="#4CADC1" d="M-7.2-3.9c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15zm0 27.3c-6.8 0-12.3-5.5-12.3-12.3s5.5-12.4 12.3-12.4 12.3 5.6 12.3 12.4-5.5 12.3-12.3 12.3z"></path>
+                           </svg>
+                        </a>
+                        <a href="" class="session-toggle">
+                           <div class="user-media--session bucket-media user-media" width="40" height="40">
+                              <img class="thumb thumb--m" width="40" height="40" src="{{static_domain}}/index/logout">
+                           </div>
+                        </a>
+                        <nav class="ng-scope">
+                           <ul class="dropdown-menu session-menu">
+                              <li class="dropdown-item session-item">
+                                 <a class="dropdown-link session-link" href="http://campus.codeschool.com/session?provider_sign_out=codeschool" rel="nofollow">
+                                 Log Out
+                                 </a>
+                              </li>
+                              <li class="dropdown-item session-item">
+                                 <a href="" class="dropdown-link session-link"><span class="ng-scope">
+                                 My Stats
+                                 </span></a>
+                              </li>
+                              <li class="dropdown-item session-item session-item--user">
+                                 <a class="dropdown-link session-link" href="http://www.codeschool.com/account" analytics-on="" analytics-event="Session My Account">My Account</a>
+                              </li>
+                              <li class="dropdown-item session-item">
+                                 <a class="dropdown-link session-link" href="" analytics-on="" analytics-event="Session Support">
+                                 Support
+                                 </a>
+                              </li>
+                              <li class="dropdown-item session-item">
+                                 <a class="dropdown-link session-link" href="https://www.codeschool.com/discuss/t/powering-up-with-react-course-topics/26653" analytics-on="" analytics-event="Session Forum">
+                                 Discuss
+                                 </a>
+                              </li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </header>
+               <!-- end ngIf: optionalUi.courseBar -->
+               <flash-message class="ng-isolate-scope">
+                  <!-- ngIf: !isHidden -->
+               </flash-message>
+               <!-- ui-view-anchor -->
+               <main class="content" ui-view="">
+                  <div class="content-data">
+                     <div class="course-content course_{{static_domain}}/index">
+                        <div class="ng-scope">
+                           <div class="map" scroll-element-selector="main">
+                              <ol class="map-list">
+                                 <!-- ngRepeat: level in levels -->
+                                 <li class="card card--a map-level card card--a map-level is-expanded">
+                                    <div class="badge badge--offset map-badge">
+                                       <img width="110" height="110" alt="Placeholder Badge" class="badge-img" src="{{static_domain}}/index/d1.png">
+                                    </div>
+                                    <header class="map-level-header map-level-cell">
+                                       <h2 class="map-level-label">Level 1</h2>
+                                       <h3 class="map-level-title">
+                                          <a href="" class="expand-on-click">First Component</a>
+                                          <span class="map-level-title-label">0/9 Complete</span>
+                                       </h3>
+                                    </header>
+                                    <div class="map-level-section map-level-cell">
+                                       <ol class="map-level-section-list">
+                                          <!-- ngRepeat: page in levelPages --><!-- ngIf: isPage(page) -->
+                                          <!-- ngIf: isSection(page) -->
+                                          <li>
+                                             <h4 class="map-level-section-title">
+                                                <a href="http://campus.codeschool.com/courses/powering-up-with-react/level/1/section/1" ng-click="gotoPage($event)" analytics-on="" analytics-event="Course Map Section" class="ng-binding">First Component</a>
+                                             </h4>
+                                             <ol class="map-level-list">
+                                                <!-- ngRepeat: page in pages -->
+                                                <li class="map-level-item map-level-item--video is-complete">
+                                                   <a href="" class="ng-binding">First Component</a>
+                                                </li>
+                                                <!-- end ngRepeat: page in pages -->
+                                                <li class="map-level-item map-level-item--multiple-choice_challenge">
+                                                   <a href="" class="ng-binding">Breaking Down Problems</a>
+                                                </li>
+                                                <!-- end ngRepeat: page in pages -->
+                                                <li class="map-level-item map-level-item--html-select_challenge">
+                                                   <a href="" class="ng-binding">Identifying Components</a>
+                                                </li>
+                                                <!-- end ngRepeat: page in pages -->
+                                                <li class="map-level-item map-level-item--fill-in_blank_challenge">
+                                                   <a href="" class="ng-binding">The Rendering Process</a>
+                                                </li>
+                                                <!-- end ngRepeat: page in pages -->
+                                                <li class="map-level-item map-level-item--editor-tasks_challenge">
+                                                   <a href="" class="ng-binding">Creating a Component</a>
+                                                </li>
+                                                <!-- end ngRepeat: page in pages -->
+                                                <li class="map-level-item map-level-item--editor-tasks_challenge">
+                                                   <a href="" class="ng-binding">Rendering a Component</a>
+                                                </li>
+                                                <!-- end ngRepeat: page in pages -->
+                                             </ol>
+                                          </li>
+                                          <!-- end ngIf: isSection(page) --><!-- end ngRepeat: page in levelPages --><!-- ngIf: isPage(page) -->
+                                          <!-- ngIf: isSection(page) -->
+                                          <li>
+                                             <h4 class="map-level-section-title">
+                                                <a href="" class="ng-binding">Understanding JSX</a>
+                                             </h4>
+                                             <ol class="map-level-list">
+                                                <!-- ngRepeat: page in pages -->
+                                                <li class="map-level-item map-level-item--video is-complete" >
+                                                   <a href="" class="ng-binding">Understanding JSX</a>
+                                                </li>
+                                                <!-- end ngRepeat: page in pages -->
+                                                <li class="map-level-item map-level-item--multiple-choice_challenge" >
+                                                   <a href=""  class="ng-binding">The Markup Used by React</a>
+                                                </li>
+                                                <!-- end ngRepeat: page in pages -->
+                                                <li class="map-level-item map-level-item--editor-tasks_challenge" >
+                                                   <a href=""  class="ng-binding">Coding JSX</a>
+                                                </li>
+                                                <!-- end ngRepeat: page in pages -->
+                                                <li class="map-level-item map-level-item--editor-tasks_challenge" >
+                                                   <a href=""  class="ng-binding">JSX and Plain JavaScript</a>
+                                                </li>
+                                                <!-- end ngRepeat: page in pages -->
+                                                <li class="map-level-item map-level-item--editor-tasks_challenge" >
+                                                   <a href=""  class="ng-binding">JSX and Collections</a>
+                                                </li>
+                                                <!-- end ngRepeat: page in pages -->
+                                             </ol>
+                                          </li>
+                                          <!-- end ngIf: isSection(page) --><!-- end ngRepeat: page in levelPages -->
+                                       </ol>
+                                    </div>
+                                 </li>
+                                
+                                 <li class="card card--a map-level card card--a map-level is-disabled">
+                                    <div class="badge badge--offset map-badge">
+                                       <img width="110" height="110" alt="Placeholder Badge" class="badge-img" src="{{static_domain}}/index/d2.png">
+                                    </div>
+                                    <header class="map-level-header map-level-cell">
+                                       <h2 class="map-level-label">Level 2</h2>
+                                       <h3 class="map-level-title">
+                                          <a href="" class="expand-on-click">Synthetic Events</a>
+                                          <span class="map-level-title-label">0/6 Complete</span>
+                                       </h3>
+                                    </header>
+                                    <div class="map-level-section map-level-cell">
+                                       <ol class="map-level-section-list">
+                                          <!-- ngRepeat: page in levelPages -->
+                                       </ol>
+                                    </div>
+                                 </li>
+                                 <!-- end ngRepeat: level in levels -->
+                                 <li class="card card--a map-level card card--a map-level is-disabled">
+                                    <div class="badge badge--offset map-badge">
+                                       <img width="110" height="110" alt="Placeholder Badge" src="{{static_domain}}/index/d3.png">
+                                    </div>
+                                    <header class="map-level-header map-level-cell">
+                                       <h2 class="map-level-label">Level 3</h2>
+                                       <h3 class="map-level-title">
+                                          <a href="" class="expand-on-click">Component State</a>
+                                          <span class="map-level-title-label">0/6 Complete</span>
+                                       </h3>
+                                    </header>
+                                    <div class="map-level-section map-level-cell">
+                                       <ol class="map-level-section-list">
+                                          <!-- ngRepeat: page in levelPages -->
+                                       </ol>
+                                    </div>
+                                 </li>
+                                 <!-- end ngRepeat: level in levels -->
+                                 <li class="card card--a map-level card card--a map-level is-disabled">
+                                    <div class="badge badge--offset map-badge">
+                                       <img width="110" height="110" alt="Placeholder Badge" class="badge-img" src="{{static_domain}}/index/d4.png">
+                                    </div>
+                                    <header class="map-level-header map-level-cell">
+                                       <h2 class="map-level-label">Level 4</h2>
+                                       <h3 class="map-level-title">
+                                          <a href="" class="expand-on-click">Synthetic Events</a>
+                                          <span class="map-level-title-label">0/6 Complete</span>
+                                       </h3>
+                                    </header>
+                                    <div class="map-level-section map-level-cell">
+                                       <ol class="map-level-section-list">
+                                          <!-- ngRepeat: page in levelPages -->
+                                       </ol>
+                                    </div>
+                                 </li>
+                                 <!-- end ngRepeat: level in levels -->
+                                 <li class="card card--a map-level card card--a map-level is-disabled">
+                                    <div class="badge badge--offset map-badge">
+                                       <img width="110" height="110" alt="Placeholder Badge" class="badge-img" src="{{static_domain}}/index/d5.png">
+                                    </div>
+                                    <header class="map-level-header map-level-cell">
+                                       <h2 class="map-level-label">Level 5</h2>
+                                       <h3 class="map-level-title">
+                                          <a href="" class="expand-on-click">Talking to Remote Servers</a>
+                                          <span class="map-level-title-label">0/6 Complete</span>
+                                       </h3>
+                                    </header>
+                                    <div class="map-level-section map-level-cell">
+                                       <ol class="map-level-section-list">
+                                          <!-- ngRepeat: page in levelPages -->
+                                       </ol>
+                                    </div>
+                                 </li>
+                                 <!-- end ngRepeat: level in levels -->
+
+
+                                 <!--ok-->
+                                 
+                                   <!-- ngRepeat: level in levels -->
+                                 <li class="card card--a map-level card card--a map-level is-expanded" ng-repeat="course in listCourse">
+                                    <div class="badge badge--offset map-badge">
+                                       <img width="110" height="110" alt="Placeholder Badge" class="badge-img" ng-src="[[course.link_icon]]">
+                                    </div>
+                                    <header class="map-level-header map-level-cell">
+                                       <h2 class="map-level-label">Level [[course.level]]</h2>
+                                       <h3 class="map-level-title">
+                                          <a href="" class="expand-on-click">[[course.name]]</a>
+                                          <span class="map-level-title-label">0/9 Complete</span>
+                                       </h3>
+                                    </header>
+                                    <div class="map-level-section map-level-cell">
+                                       <ol class="map-level-section-list">
+                                          <!-- ngRepeat: page in levelPages --><!-- ngIf: isPage(page) -->
+                                          <!-- ngIf: isSection(page) -->
+                                          <li>
+                                             <h4 class="map-level-section-title">
+                                                <a href="http://campus.codeschool.com/courses/powering-up-with-react/level/1/section/1" ng-click="gotoPage($event)" analytics-on="" analytics-event="Course Map Section" class="ng-binding">First Component</a>
+                                             </h4>
+                                             <ol class="map-level-list">
+                                                <!-- ngRepeat: page in pages -->
+                                                <li ng-class="{'map-level-item--editor-tasks_challenge':data.type==2,'map-level-item--video':data.type==1}" class="map-level-item" ng-repeat="data in course.details">
+                                                   <a href="" class="ng-binding">[[data.name]]</a>
+                                                </li>
+                                             </ol>
+                                          </li>
+                                         
+                                          <!-- end ngIf: isSection(page) --><!-- end ngRepeat: page in levelPages -->
+                                       </ol>
+                                    </div>
+                                 </li>
+
+
+
+                              </ol>
+                           </div>
+                           <!-- ngIf: resources -->
+                           <div class="cell cell--xs mbxl">
+                              <div class="card card--a">
+                                 <h2>Resources</h2>
+                                 <ul class="list">
+                                    <!-- ngRepeat: resource in resources -->
+                                    <li class="list-item">
+                                       <i class="icn icn--middle mrs tcs icn--slides"></i>
+                                       <a href="http://courseware.codeschool.com/powering-up-with-react/CodeSchool-PoweringUpWithReact.pdf">Course Slides</a>
+                                    </li>
+                                    <!-- end ngRepeat: resource in resources -->
+                                 </ul>
+                              </div>
+                           </div>
+                           <!-- end ngIf: resources -->
+                           <div class="omnibar-btn">
+                              <a href="" class="btn btn--a btn--next btn--continue"><span>Continue</span></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </main>
+            </div>
+         </div>
+      </div>
+      <script>
+        var STATIC_DOMAIN = "{{static_domain}}";
+        var DOMAIN = "{{domain}}";
+      </script>
+      <script type="text/javascript" src="{{static_domain}}/js/angular.min.js"></script>
+      <script type="text/javascript" src="{{static_domain}}/js/angular-route.min.js"></script>
+    
+      <script type="text/javascript">
+      var app = angular.module('eduCore', []);
+
+       app.config(function($interpolateProvider, $httpProvider) {
+            $interpolateProvider.startSymbol('[[').endSymbol(']]');
+            $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+            $httpProvider.defaults.transformRequest = function(obj) {
+                var str = [];
+                for (var p in obj) {
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                }
+                return str.join("&");
+            };
+        });
+
+      app.controller('courseCtr', ['$scope' , '$rootScope','$http', function($scope,$rootScope,$http){
+         $scope.id = "{{id}}";
+         $scope.listCourse = [];
+         $scope.temp = [];
+         console.log($scope.id);
+
+         $scope.getDataList = function(){
+               $scope.showLoading = true;
+               $scope.getJSON("{{domain}}/api?action=get-course-detail&page=1&maxRow=100&parentID=" + $scope.id , function(data){
+                    if(data.data){
+                        $scope.temp = data.data;
+                        for(var x in $scope.temp){
+                           var id = $scope.temp[x].id;
+                           $scope.getDetails($scope.temp[x],id);
+                        }
+                    }
+                    $scope.showLoading = false;
+                }, function(error){
+                    console.log(error);
+                });
+         }
+
+         $scope.getDetails = function(parent,id){
+               if($scope.id != 0 && id != 0){
+                  console.log("get list detail");
+                  $scope.getJSON("{{domain}}/api?action=get-detail&page=1&maxRow=100&parentID=" + id , function(data){
+                     if(data.data){
+                           parent.details = data.data;
+                           $scope.listCourse.push(parent);
+                     }
+                  }, function(error){
+                          console.log(error);
+                  });
+               }
+         }
+
+         
+
+         $scope.cacheAjax = {};
+
+         $scope.getJSON = function (url, success , error) {
+                //Get from cache
+                if (typeof $scope.cacheAjax[url] != "undefined") {
+                    //console.log("getfromCache");
+                    success($scope.cacheAjax[url]);
+                    return;
+                }
+                $http.get(url)
+                    .success(function (data) {
+                        if (typeof data !== "undefined") {
+                            var tmp;
+                            tmp = angular.copy(data, tmp);
+                            $scope.cacheAjax[url] = tmp;
+                            try {
+                                success(data);
+                            } catch (e) {
+                                console.log("error");
+                            }
+                        }
+                    }).error(function(){
+                        console.log("Get JSON Ajax Fail: " + url);
+                        error("Get JSON Ajax Fail: " + url);
+                    });
+            }//end GetJson
+            $scope.getDataList();
+
+      }])
+      </script>
+   </body>
+
+   
+</html>
