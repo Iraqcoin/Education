@@ -2,13 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/root/Project/SVN/Education/Education/test/Test.java</file>
-            <file>file:/root/Project/SVN/Education/Education/src/com/vng/zing/education/model/ParentCategoryModel.java</file>
-            <file>file:/root/Project/SVN/Education/Education/conf/development.config.ini</file>
-            <file>file:/root/Project/SVN/Education/Education/src/com/vng/zing/education/handlers/BaseHandler.java</file>
-            <file>file:/root/Project/SVN/Education/Education/src/com/vng/zing/education/handlers/FileUploadServlet.java</file>
-            <file>file:/root/Project/SVN/Education/Education/src/com/vng/zing/education/handlers/AdminServiceHandler.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

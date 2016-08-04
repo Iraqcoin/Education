@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0027)https://www.codeschool.com/ -->
+<!-- saved from url=(0027)/#/ -->
 <html lang="en" xmlns:fb="http://ogp.me/ns/fb#" class=" modernizr-supports modernizr-cssfilters modernizr-flexbox modernizr-touchevents" ng-app="eduCore">
    <!--<![endif]-->
    <head>
@@ -8,34 +8,34 @@
     
       <title>Learn by doing | Tony Education</title>
     
-      <link href="{{static_domain}}/css/index.css?v=2" media="screen" rel="stylesheet" type="text/css">
+      <link href="{{static_domain}}/css/index.css?v=5" media="screen" rel="stylesheet" type="text/css">
       <link href="{{static_domain}}/css/css.css?v=2" media="screen" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="{{static_domain}}/font-awesome/css/font-awesome.min.css">
    </head>
-   <body class="home home-show " data-page="home:show">
-      <header class="header row row--a has-dropdown js-navToggle-container" role="banner">
+   <body class="home home-show ">
+      <header class="header row row--a has-dropdown js-navToggle-container">
          <div class="cell header-cell">
-            <div class="header-item prm" itemscope="" itemtype="http://schema.org/Organization">
-               <a href="https://www.codeschool.com/" class="brand-link" itemprop="url"><img alt="Code School" class="brand-img" itemprop="logo" src="{{static_domain}}/index/logo-code-school-ps.svg">
+            <div class="header-item prm" itemscope="">
+               <a href="#" class="brand-link" itemprop="url"><img alt="Code School" class="brand-img" itemprop="logo" src="{{static_domain}}/index/logo-code-school-ps.svg">
                </a>
             </div>
             <div class="header-item header-item--grow sentry" id="main_nav">
                <nav class="nav header-item header-item--grow js-navToggle-nav" id="site-navigation" role="navigation">
-                  <a href="https://www.codeschool.com/#" class="nav-menu js-navToggle">
+                  <a href="#" class="nav-menu js-navToggle">
                      <div class="nav-box"></div>
                      <div class="nav-menu-stack">
                         <b class="srt">Menu</b>
                      </div>
                   </a>
                   <ol class="nav-list list list--object list--object--l list--object--single header-item header-item--grow dn fx--m">
-                     <li class="nav-item list-item"><a href="https://www.codeschool.com/learn" class="nav-item-link list-item-link">Courses</a></li>
-                     <li class="nav-item list-item"><a href="https://www.codeschool.com/screencasts" class="nav-item-link list-item-link">Screencasts</a></li>
-                     <li class="nav-item list-item"><a href="https://www.codeschool.com/pricing" class="nav-item-link list-item-link" data-segment-link="User Clicked Enroll" data-segment-properties="{&quot;source&quot;:&quot;Main Navigation&quot;}">Pricing</a></li>
-                     <li class="nav-item list-item"><a href="https://www.codeschool.com/pricing/team" class="nav-item-link list-item-link">Business</a></li>
+                          <li class="nav-item list-item"><a href="/#/pricing" class="nav-item-link list-item-link">Trang Chủ</a></li>
+                     <li class="nav-item list-item"><a href="/#/learn" class="nav-item-link list-item-link">Khóa Học</a></li>
+                     <li class="nav-item list-item"><a href="/#/screencasts" class="nav-item-link list-item-link">Thảo Luận</a></li>
+                     <li class="nav-item list-item"><a href="/#/pricing/team" class="nav-item-link list-item-link">Hợp tác</a></li>
                      <li class="nav-item nav-item--btn list-item mla">
-                        <a href="https://www.codeschool.com/users/sign_up" class="btn btn--s btn--important--bordered list-item-link">Create Free Account</a>
+                        <a href="/#/users/sign_up" class="btn btn--s btn--important--bordered list-item-link">Tạo Tài Khoản</a>
                      </li>
-                     <li class="nav-item list-item"><a href="#/course/1"  class="nav-item-link list-item-link">Sign in</a></li>
+                     <li class="nav-item list-item"><a href="#/course/1"  class="nav-item-link list-item-link">Đăng Nhập</a></li>
                      <li class="nav-item nav-item--search list-item">
                         <div class="search-trigger" data-target="#search-open" data-toggle="modal">
                            <span class="search-icn"><i class="fa fa-search" aria-hidden="true"></i></span>
@@ -47,11 +47,11 @@
                   <div class="modal-dialog modal-dialog--l">
                      <div class="modal-content">
                         <div class="modal-header bdrn">
-                           <a href="https://www.codeschool.com/#" class="modal-close close" data-dismiss="modal"><b class="srt">Close</b>
+                           <a href="/#/#" class="modal-close close" data-dismiss="modal"><b class="srt">Close</b>
                            </a>
                         </div>
                         <div class="modal-body">
-                           <form accept-charset="UTF-8" action="https://www.codeschool.com/search" class="form js-searchAutocomplete-form" method="get">
+                           <form accept-charset="UTF-8" action="/#/search" class="form js-searchAutocomplete-form" method="get">
                               <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
                               <label class="search-label">
                               <i class="icn icn--search"></i>
@@ -78,7 +78,7 @@
       <div class="modal fade modal--sign-in">
          <div class="modal-dialog">
             <div class="modal-content">
-               <a href="https://www.codeschool.com/#" class="modal-close close" data-dismiss="modal"><b class="srt">Close</b>
+               <a href="/#/#" class="modal-close close" data-dismiss="modal"><b class="srt">Close</b>
                </a>
                <div class="modal-body tac">
                   <h3 class="h h--2 mbxs ptl">Create a Bookmark</h3>
@@ -87,7 +87,7 @@
                      School&nbsp;account.
                   </p>
                   <div class="mbm">
-                     <a href="https://www.codeschool.com/users/sign_up" class="btn btn--success">Create a Free Account</a>
+                     <a href="/#/users/sign_up" class="btn btn--success">Create a Free Account</a>
                   </div>
                   <div class="pbl">
                      <p class="mbf tcs tss">Already have an account?</p>
@@ -97,6 +97,9 @@
             </div>
          </div>
       </div>
+      
+ 
+      
       <footer class="footer" role="contentinfo">
          <div class="row">
             <div class="cell well well--l">
@@ -105,26 +108,26 @@
                      <div class="g g--s">
                         <div class="g-b g-b--m--1of2 g-b--xl--1of3">
                            <ul class="footer-list list mbs mbm--xl">
-                              <li class="list-item"><a href="https://www.codeschool.com/users/sign_up" class="footer-list-link link link--underline list-item-link">Create Free Account</a></li>
-                              <li class="list-item"><a href="https://www.codeschool.com/pricing/team" class="footer-list-link list-item-link">Team Accounts</a></li>
-                              <li class="list-item"><a href="https://www.codeschool.com/courses" class="footer-list-link list-item-link">View Courses</a></li>
-                              <li class="list-item"><a href="https://www.codeschool.com/courses/suggest" class="footer-list-link list-item-link">Suggest Course</a></li>
-                              <li class="list-item"><a href="https://www.codeschool.com/suggest/features" class="footer-list-link list-item-link">Suggest Feature</a></li>
-                              <li class="list-item"><a href="https://www.codeschool.com/discuss/" class="footer-list-link list-item-link">Discuss</a></li>
-                              <li class="list-item"><a href="https://www.codeschool.com/pricing" class="footer-list-link list-item-link">Pricing</a></li>
-                              <li class="list-item"><a href="https://www.codeschool.com/pricing/gift" class="footer-list-link list-item-link">Gift a Subscription</a></li>
+                              <li class="list-item"><a href="/#/users/sign_up" class="footer-list-link link link--underline list-item-link">Create Free Account</a></li>
+                              <li class="list-item"><a href="/#/pricing/team" class="footer-list-link list-item-link">Team Accounts</a></li>
+                              <li class="list-item"><a href="/#/courses" class="footer-list-link list-item-link">View Courses</a></li>
+                              <li class="list-item"><a href="/#/courses/suggest" class="footer-list-link list-item-link">Suggest Course</a></li>
+                              <li class="list-item"><a href="/#/suggest/features" class="footer-list-link list-item-link">Suggest Feature</a></li>
+                              <li class="list-item"><a href="/#/discuss/" class="footer-list-link list-item-link">Discuss</a></li>
+                              <li class="list-item"><a href="/#/pricing" class="footer-list-link list-item-link">Pricing</a></li>
+                              <li class="list-item"><a href="/#/pricing/gift" class="footer-list-link list-item-link">Gift a Subscription</a></li>
                            </ul>
                         </div>
                         <div class="g-b g-b--m--1of2 g-b--xl--1of3">
                            <ul class="footer-list list mbs mbm--xl">
-                              <li class="list-item"><a href="https://www.codeschool.com/contact" class="footer-list-link link link--underline list-item-link">Contact Code School</a></li>
-                              <li class="list-item"><a href="https://www.codeschool.com/support" class="footer-list-link list-item-link">Support</a></li>
-                              <li class="list-item"><a href="https://www.codeschool.com/about" class="footer-list-link list-item-link">About</a></li>
-                              <li class="list-item"><a href="https://www.codeschool.com/blog" class="footer-list-link list-item-link">Blog</a></li>
-                              <li class="list-item"><a href="https://www.codeschool.com/jobs" class="footer-list-link list-item-link">Jobs</a></li>
+                              <li class="list-item"><a href="/#/contact" class="footer-list-link link link--underline list-item-link">Contact Code School</a></li>
+                              <li class="list-item"><a href="/#/support" class="footer-list-link list-item-link">Support</a></li>
+                              <li class="list-item"><a href="/#/about" class="footer-list-link list-item-link">About</a></li>
+                              <li class="list-item"><a href="/#/blog" class="footer-list-link list-item-link">Blog</a></li>
+                              <li class="list-item"><a href="/#/jobs" class="footer-list-link list-item-link">Jobs</a></li>
                               <li class="list-item"><a href="http://shop.codeschool.com/" class="footer-list-link list-item-link">Shop</a></li>
-                              <li class="list-item"><a href="https://www.codeschool.com/terms" class="footer-list-link list-item-link">Terms of Use</a></li>
-                              <li class="list-item"><a href="https://www.codeschool.com/privacy_policy" class="footer-list-link list-item-link">Privacy Policy</a></li>
+                              <li class="list-item"><a href="/#/terms" class="footer-list-link list-item-link">Terms of Use</a></li>
+                              <li class="list-item"><a href="/#/privacy_policy" class="footer-list-link list-item-link">Privacy Policy</a></li>
                            </ul>
                         </div>
                         <div class="g-b g-b--xl--1of3">
@@ -171,7 +174,7 @@
                            and screencasts. We strive to help you learn by doing.
                         </p>
                         <div class="mbm mbl--m">
-                           <a href="https://www.codeschool.com/about" class="link link--underline tss">Learn More</a>
+                           <a href="/#/about" class="link link--underline tss">Learn More</a>
                         </div>
                         <a href="http://www.pluralsight.com/" aria-label="Leave to pluralsight.com" data-placement="right" rel="tooltip" title="" data-original-title="Visit pluralsight.com"><img alt="Pluralsight" class="db mbs mbf--m" src="{{static_domain}}/index/logo-pluralsight-gray.svg">
                         </a>
@@ -189,6 +192,9 @@
         var STATIC_DOMAIN = "{{static_domain}}";
         var DOMAIN = "{{domain}}";
      </script>
+     
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+     
      <script type="text/javascript" src="{{static_domain}}/js/angular.min.js"></script>
      <script type="text/javascript" src="{{static_domain}}/js/angular-route.min.js"></script>
      <script type="text/javascript" src="{{static_domain}}/js/lodash.min.js"></script>
