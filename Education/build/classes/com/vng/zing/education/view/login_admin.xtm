@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" ng-app="main-login">
    <head>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -25,7 +25,7 @@
       </script>
    </head>
    <body>
-      <div class="auth">
+      <div class="auth" ng-controller="loginCtr">
          <div class="auth-container">
             <div class="card">
                <header class="auth-header">
@@ -43,14 +43,22 @@
                <div class="auth-content">
                   <p class="text-xs-center">LOGIN TO CONTINUE</p>
                   <form id="login-form" action="/index.html" method="GET" novalidate="">
-                     <div class="form-group"> <label for="username">Username</label> <input type="email" class="form-control underlined" name="username" id="username" placeholder="Your email address" required> </div>
-                     <div class="form-group"> <label for="password">Password</label> <input type="password" class="form-control underlined" name="password" id="password" placeholder="Your password" required> </div>
+                     <div class="form-group">
+                        <label for="username">Email</label>
+                        <input type="email" class="form-control underlined" name="username" id="username" placeholder="Your email address" ng-model="formData.username" required> 
+                     </div>
+
+                     <div class="form-group">
+                        <label for="password">Password</label> 
+                        <input type="password" class="form-control underlined" name="password" id="password" placeholder="Your password" ng-model="formData.passw" required> 
+                     </div>
+
                      <div class="form-group"> <label for="remember">
-                        <input class="checkbox" id="remember" type="checkbox"> 
+                        <input class="checkbox" id="remember" type="checkbox" ng-model="formData.remember" ng-true-value="1" ng-false-value="0"> 
                         <span>Remember me</span>
                         </label> <a href="reset.html" class="forgot-btn pull-right">Forgot password?</a> 
                      </div>
-                     <div class="form-group"> <button type="submit" class="btn btn-block btn-primary">Login</button> </div>
+                     <div class="form-group"> <button type="button" class="btn btn-block btn-primary" ng-click="doLogin()">Login</button> </div>
                      <div class="form-group">
                         <p class="text-muted text-xs-center">Do not have an account? <a href="/user/sign_up">Sign Up!</a></p>
                      </div>
@@ -70,10 +78,46 @@
             <div class="color-secondary"></div>
          </div>
       </div>
+      <script src="{{static_domain}}/admin/js/vendor.js?v=1"></script>
+      <script src="{{static_domain}}/admin/js/app.js?v=1"></script>
       <script>
         var STATIC_DOMAIN = "{{static_domain}}";
       </script>
-      <script src="{{static_domain}}/admin/js/vendor.js?v=1"></script>
-      <script src="{{static_domain}}/admin/js/app.js?v=1"></script>
+      <script type="text/javascript" src="{{static_domain}}/js/angular.min.js"></script>
+      <script type="text/javascript" src="{{static_domain}}/js/angular-route.min.js"></script>
+      <script type="text/javascript">
+         var app = angular.module('main-login', ['ngRoute']);
+         app.config(function($interpolateProvider, $httpProvider) {
+            $interpolateProvider.startSymbol('[[').endSymbol(']]');
+            $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+            $httpProvider.defaults.transformRequest = function(obj) {
+                var str = [];
+                for (var p in obj) {
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                }
+                return str.join("&");
+            };
+        });
+         app.controller('loginCtr', ['$scope','$http', function($scope,$http){
+            $scope.formData = {};
+            $scope.doLogin = function(){
+
+               console.log($scope.formData.remember);
+
+                $http({
+                 method  : 'POST',
+                 url     : '{{domain}}' + "/user/sign_in",
+                 params: {data: $scope.formData}
+                }).success(function(data) {
+
+                   if (!data || data.error < 0) {
+                     alert("Fails : " + data.error);
+                   } else {
+                     window.location = data.callBack;
+                   }
+                 });
+            }
+         }]);
+      </script>
    </body>
 </html>

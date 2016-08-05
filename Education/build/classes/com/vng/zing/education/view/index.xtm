@@ -12,7 +12,7 @@
       <link href="{{static_domain}}/css/css.css?v=2" media="screen" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="{{static_domain}}/font-awesome/css/font-awesome.min.css">
    </head>
-   <body class="home home-show ">
+   <body class="home home-show " ng-controller="rootController">
       <header class="header row row--a has-dropdown js-navToggle-container">
          <div class="cell header-cell">
             <div class="header-item prm" itemscope="">
@@ -198,7 +198,7 @@
      <script type="text/javascript" src="{{static_domain}}/js/angular.min.js"></script>
      <script type="text/javascript" src="{{static_domain}}/js/angular-route.min.js"></script>
      <script type="text/javascript" src="{{static_domain}}/js/lodash.min.js"></script>
-     <script type="text/javascript" src="{{static_domain}}/js/app/index.js?v=3"></script>
+     <script type="text/javascript" src="{{static_domain}}/js/app/index.js?v=4"></script>
      <script type="text/javascript" src="{{static_domain}}/js/app/detail.js?v=2"></script>
      <script type="text/javascript" src="{{static_domain}}/js/app/tutorial.js?v=2"></script>
      

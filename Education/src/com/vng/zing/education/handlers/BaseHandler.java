@@ -6,11 +6,13 @@
 package com.vng.zing.education.handlers;
 
 import com.vng.zing.common.HReqParam;
+import com.vng.zing.education.common.Auth;
 import com.vng.zing.logger.ZLogger;
 import com.vng.zing.stats.Profiler;
 import com.vng.zing.stats.ThreadProfiler;
 import com.vng.zing.education.common.Configuration;
 import com.vng.zing.education.common.HttpHelper;
+import com.vng.zing.education.common.UtilHelper;
 import com.vng.zing.education.common.ZingHelper;
 import hapax.Template;
 import hapax.TemplateDataDictionary;
@@ -54,10 +56,44 @@ public class BaseHandler extends HttpServlet {
             Profiler.closeThreadProfiler();
         }
     }
+    public boolean checkLogin(HttpServletRequest req , HttpServletResponse resp){
+        Auth auth = (Auth) req.getAttribute(Auth.AUTH);
+        if(auth != null && auth.isLogged){
+            return true;
+        }
+        auth = Auth.getIdentity(req);
+        if (!auth.isLogged) {
+             try {              
+                 resp.sendRedirect(Configuration.APP_DOMAIN + "/user/sign_up?continue=" + UtilHelper.encodeUrl(getFullUrl(req)));
+                 return false;
+             } catch (IOException ex) {
+                 _logger.error(ex.getMessage());
+             }
+           return false;
+        }
+        return true;
+    }
 
     protected TemplateDataDictionary getDictionary() {
         return getDictionary("vi");
     }
+    
+       public static String getQueryString(HttpServletRequest req){
+        String query = req.getQueryString();
+        return query != null ? query : "";
+    }
+    
+    public static String getFullUrl(HttpServletRequest request){
+        String queryString = request.getQueryString() != null ? "?"+request.getQueryString() : "";
+        String uri = request.getScheme() + "://" +   // "http" + "://
+             request.getServerName() +       // "myhost"
+             ":" +                           // ":"
+             request.getServerPort() +       // "8080"
+             request.getRequestURI() +       // "/people"
+             queryString;       // "lastname=Fox&age=30"
+        return uri;
+    }
+
 
     protected static TemplateDataDictionary getDictionary(String language) {
         ThreadProfiler profiler = Profiler.getThreadProfiler();

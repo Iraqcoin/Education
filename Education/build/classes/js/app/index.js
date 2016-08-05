@@ -51,6 +51,18 @@
 		};
 	}
 
+	angular.module('eduCore').controller('rootController', ['$scope','$rootScope','$http', rootController]);
+	function rootController($scope , $rootScope , $http) {
+		$rootScope.checkAuthen = function(fnCallback){
+			$http.get(DOMAIN + "/user/sign_in?action=check")
+	        .success(function (data) {
+	            fnCallback(data);
+	        }).error(function(){
+	            console.log("Get JSON Ajax Fail: " + url);
+	        });
+		}
+	}
+
 	angular.module('eduCore').controller('eduMainController', ['$scope', 'eduMainFactory','$rootScope', eduMainController]);
 
 	function eduMainController($scope, eduMainFactory , $rootScope) {

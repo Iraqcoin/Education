@@ -29,7 +29,21 @@
 		$scope.name = $routeParams.name.replace(/\s+/g, '-').toLowerCase();
 
 		$scope.isPlayVideo = false;
-        $scope.linkVideo = "";
+    $scope.linkVideo = "";
+
+    $scope.playCourse = function(){
+      var callback = function(data){
+        console.log(data);
+        if(!data || data.error < 0){
+          console.log(data.callBack);
+          window.location = data.callBack;
+        }
+        else
+          $scope.isVideo = true;
+      }
+      $rootScope.checkAuthen(callback);
+    }
+
 		eduCourseFactory.list($routeParams.id,listCourseCallback);
 		function listCourseCallback(error, dataCallback) {
 			if (!error) {

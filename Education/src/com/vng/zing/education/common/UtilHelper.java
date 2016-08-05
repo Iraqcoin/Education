@@ -8,6 +8,9 @@ package com.vng.zing.education.common;
 import com.vng.zing.stats.Profiler;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.CRC32;
@@ -55,5 +58,30 @@ public class UtilHelper {
             }
         }
         return result;
+    }
+    
+    
+    public static String md5(String str) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(str.getBytes());
+            byte byteData[] = md.digest();
+            //convert the byte to hex format method 1
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < byteData.length; i++) {
+                sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            return sb.toString();
+        } catch (Exception ex) {
+            return "";
+        }
+    }
+    
+    public static String encodeUrl(String value){
+        try {
+            return URLEncoder.encode(value, "UTF-8");
+        } catch (UnsupportedEncodingException ex) {
+            return value;
+        }
     }
 }

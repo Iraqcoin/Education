@@ -4,6 +4,7 @@
  */
 package com.vng.zing.education.app;
 
+import com.vng.zing.education.model.CacheUserModel;
 import com.vng.zing.education.servers.HServers;
 import com.vng.zing.education.servers.TServers;
 
@@ -21,6 +22,7 @@ public class MainApp {
         ///
         ///http servers
         ///
+        CacheUserModel.init();
         HServers hServers = new HServers();
         if (!hServers.setupAndStart()) {
             System.err.println("Could not start http servers! Exit now.");

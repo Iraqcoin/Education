@@ -26,11 +26,9 @@ public class Configuration {
     private static final int PROMOTION_NUMBER = ZConfig.Instance.getInt(Configuration.class, "app", "promotion-num", 5);
     public static final ZCommonCache _ZCommonCache = new ZCommonCache("main");
     public static final int DISTINCT_PAGING_NUMBER = ZConfig.Instance.getInt(Configuration.class, "app", "distinct-paging-num", 10);
-    public static final String LINK_STORE = ZConfig.Instance.getString(Configuration.class, "app", "link-store", "");
-    public static final String SCRIPT = ZConfig.Instance.getString(Configuration.class, "app", "script", "");
-    public static String buildStoreLink (long pageID){
-        return String.format(LINK_STORE + "%s" , pageID);
-    }
+    
+    public static final String COOKIE_DOMAIN = ZConfig.Instance.getString(Configuration.class, "app", "cookie-domain", "");
+  
     public static enum LISTING_TYPE {
 
         CATEGORY(0),PROMOTE(1);

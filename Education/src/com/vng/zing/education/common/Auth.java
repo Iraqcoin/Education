@@ -1,5 +1,8 @@
 package com.vng.zing.education.common;
 
+import com.vng.zing.education.dto.UserRegisterDTO;
+import com.vng.zing.education.model.CacheUserModel;
+import com.vng.zing.education.model.UserRegisterModel;
 import com.vng.zing.logger.ZLogger;
 
 import javax.servlet.http.Cookie;
@@ -42,17 +45,15 @@ public class Auth {
             }
             if (!zsession.isEmpty()) {
                 try {
-                   // TZProfile profile = ZaloIDMWModel.Instance.getProfileBySessionId(zsession);
-                //    if (profile != null) {
-                      //  TValue value = profile.getProfile();
-//                        auth.userId = profile.getUserId();
-//                        auth.userName = value.getUserName();
-//                        auth.displayName = value.getDisplayName();
-//                        auth.dayOfBirth = value.getBirthDate();
-//                        auth.avatarVersion = value.getAvatarVersion();
-//                        auth.avatarUrl = ZaloIDMWModel.Instance.getAvatarUrl(auth.userId, 128);
-//                        auth.isLogged = true;
-                   // }
+                    UserRegisterDTO profile = CacheUserModel.getCache(zsession);
+                    if(profile == null)
+                       profile =  UserRegisterModel.getInstances().getDataById(Integer.parseInt(zsession));
+                    if (profile != null) {
+                        auth.userId = profile.getId();
+                        auth.userName = profile.getUsername();
+                        auth.displayName = profile.getFirst_name() + " " +  profile.getLast_name();
+                        auth.isLogged = true;
+                    }
                 } catch (Exception ex) {
                     _log.error(ex.getMessage(), ex);
                 }
@@ -109,7 +110,7 @@ public class Auth {
                 cookie.setMaxAge(MAX_AGE);
             }
         }
-        cookie.setDomain(domain);
+        //cookie.setDomain(domain);
         cookie.setPath("/");
         cookie.setVersion(1);
         cookie.setHttpOnly(true);
