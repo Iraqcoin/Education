@@ -47,7 +47,8 @@ public class SubCategoryModel extends BaseModel<SubCategoryDTO> {
                 int parent_cate_id = rs.getInt("parent_cate_id");
                 String description = rs.getString("description");
                 String link_icon = rs.getString("link_icon");
-                BaseDTO dto = new SubCategoryDTO(parent_cate_id, link_icon, id, name, description);
+                int type = rs.getInt("type");
+                BaseDTO dto = new SubCategoryDTO(parent_cate_id, link_icon, id, name, description,type);
                 data.add(dto);
             }
         } catch (Exception e) {
@@ -79,7 +80,8 @@ public class SubCategoryModel extends BaseModel<SubCategoryDTO> {
                 int parent_cate_id = rs.getInt("parent_cate_id");
                 String description = rs.getString("description");
                 String link_icon = rs.getString("link_icon");
-                BaseDTO dto = new SubCategoryDTO(parent_cate_id, link_icon, id, name, description);
+                int type = rs.getInt("type");
+                BaseDTO dto = new SubCategoryDTO(parent_cate_id, link_icon, id, name, description,type);
                 data.add(dto);
             }
         } catch (Exception e) {
@@ -112,7 +114,8 @@ public class SubCategoryModel extends BaseModel<SubCategoryDTO> {
                 int parent_cate_id = rs.getInt("parent_cate_id");
                 String description = rs.getString("description");
                 String link_icon = rs.getString("link_icon");
-                BaseDTO dto = new SubCategoryDTO(parent_cate_id, link_icon, id, name, description);
+                 int type = rs.getInt("type");
+                BaseDTO dto = new SubCategoryDTO(parent_cate_id, link_icon, id, name, description,type);
                 data.add(dto);
             }
         } catch (Exception e) {
@@ -142,7 +145,8 @@ public class SubCategoryModel extends BaseModel<SubCategoryDTO> {
                 int parent_cate_id = rs.getInt("parent_cate_id");
                 String description = rs.getString("description");
                 String link_icon = rs.getString("link_icon");
-                dto = new SubCategoryDTO(parent_cate_id, link_icon, id, name, description);
+                int type = rs.getInt("type");
+                dto = new SubCategoryDTO(parent_cate_id, link_icon, id, name, description,type);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -158,7 +162,7 @@ public class SubCategoryModel extends BaseModel<SubCategoryDTO> {
     public int insertData(SubCategoryDTO dto) {
         Connection dbConnection = null;
         PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO sub_category (name, parent_cate_id,description,link_icon) values(?, ?,?,?)";
+        String sql = "INSERT INTO sub_category (name, parent_cate_id,description,link_icon,type) values(?, ?,?,?,?)";
         int generatedkey = -1;
         try {
             dbConnection = MysqlClient.getMysqlClient("main").getDbConnection();
@@ -167,6 +171,7 @@ public class SubCategoryModel extends BaseModel<SubCategoryDTO> {
             preparedStatement.setInt(2, dto.getParent_cate_id());
             preparedStatement.setString(3, dto.getDescription());
             preparedStatement.setString(4, dto.getLink_icon());
+            preparedStatement.setInt(5, dto.getType());
             preparedStatement.executeUpdate();
             ResultSet rs = preparedStatement.getGeneratedKeys();
             if (rs.next()) {
@@ -186,7 +191,7 @@ public class SubCategoryModel extends BaseModel<SubCategoryDTO> {
     public int updateData(SubCategoryDTO dto) {
         Connection dbConnection = null;
         PreparedStatement preparedStatement = null;
-        String sql = "UPDATE  sub_category SET name=? , parent_cate_id=? , description=? , link_icon=? WHERE id = ?";
+        String sql = "UPDATE  sub_category SET name=? , parent_cate_id=? , description=? , link_icon=?,type=? WHERE id = ?";
         int flag = -1;
         try {
             dbConnection = MysqlClient.getMysqlClient("main").getDbConnection();
@@ -195,7 +200,8 @@ public class SubCategoryModel extends BaseModel<SubCategoryDTO> {
             preparedStatement.setInt(2, dto.getParent_cate_id());
             preparedStatement.setString(3, dto.getDescription());
             preparedStatement.setString(4, dto.getLink_icon());
-            preparedStatement.setInt(5, dto.getId());
+            preparedStatement.setInt(5, dto.getType());
+            preparedStatement.setInt(6, dto.getId());
             flag = preparedStatement.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());

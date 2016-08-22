@@ -3249,8 +3249,8 @@ textarea {
     background: linear-gradient(to left, #B5C721, #6EB361)
 }
 .attraction--a--reverse {
-background: -webkit-linear-gradient(90deg, #21abc7, #616db3);
-   background: -webkit-linear-gradient(right, #DCD612, #87D008)
+   background: -webkit-linear-gradient(90deg, #21abc7, #616db3);
+   background: -webkit-linear-gradient(right, #6012DC, #4B346B)
 }
 .attraction--b {
     background: -webkit-linear-gradient(#f68a2e, #f25852);
@@ -3273,8 +3273,8 @@ background: -webkit-linear-gradient(90deg, #21abc7, #616db3);
     background: #ffae1c
 }
 .attraction--c {
-    background: -webkit-linear-gradient(#616db3, #3aa0ca);
-    background: linear-gradient(#616db3, #3aa0ca)
+    background: -webkit-linear-gradient(#616db3, #4A2586);
+    background: linear-gradient(#616db3, #4A2586)
 }
 .attraction--d {
     background: -webkit-linear-gradient(#54588a, #6e78b1);
@@ -8811,7 +8811,7 @@ body.search {
     padding: 0.625em
 }
 .pam {
-    padding: 1.25em
+    padding: 0.5em
 }
 .pal {
     padding: 2.5em

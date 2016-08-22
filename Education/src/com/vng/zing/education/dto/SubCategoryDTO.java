@@ -12,11 +12,13 @@ package com.vng.zing.education.dto;
 public class SubCategoryDTO extends BaseDTO{
     private int parent_cate_id;
     private String link_icon;
+    private int type;
 
-    public SubCategoryDTO(int parent_cate_id, String link_icon, int id, String name, String description) {
+    public SubCategoryDTO(int parent_cate_id, String link_icon, int id, String name, String description,int type) {
         super(id, name, description);
         this.parent_cate_id = parent_cate_id;
         this.link_icon = link_icon;
+        this.type = type;
     }
 
     public int getParent_cate_id() {
@@ -33,6 +35,14 @@ public class SubCategoryDTO extends BaseDTO{
 
     public void setLink_icon(String link_icon) {
         this.link_icon = link_icon;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
     
 }

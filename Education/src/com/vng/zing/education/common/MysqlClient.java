@@ -49,13 +49,12 @@ public class MysqlClient {
 
     private boolean init(int poolsize) {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            url = "jdbc:mysql://" + _host + ":" + _port + "/" + _dbname + "?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&interactiveClient=true&" + "&user=" + _user
-                    + "&password=" + _password;
+            Class.forName("org.mariadb.jdbc.Driver");
+            url = "jdbc:mysql://" + _host + ":" + _port + "/" + _dbname ;
 
             BlockingQueue<Connection> cnnPool = new ArrayBlockingQueue<Connection>(poolsize);
             while (cnnPool.size() < poolsize) {
-                cnnPool.add(DriverManager.getConnection(url));
+                cnnPool.add(DriverManager.getConnection(url,"root","123456"));
             }
             pool = cnnPool;
             _logger.info("MysqlClient init pool success");

@@ -34,7 +34,7 @@
           </div>
        </div>
        <div class="mv-flexGrid mv-flexGrid--s mv-flexGrid--center collection collection--center collection--s mbl">
-          <div class="mv-flexGrid-box mv-flexGrid-box--3of6_l collection-item" ng-repeat="category in listSubCategory">
+          <div class="mv-flexGrid-box mv-flexGrid-box--3of6_l collection-item" ng-repeat="category in listSubCategory | filter:{ type: 0 }">
              <div class="card card--a card--f path fx fxaic">
                 <a ng-href="#/learn/[[getText(category.name)]]/[[category.id]]">
                    <div class="bucket bucket--flag path-bucket">
@@ -65,17 +65,17 @@
        <h3 class="tac">Codeschool hiện nay cung cấp danh sách các khóa học được sắp xếp về nội dung để giúp bạn tìm hiểu cách thức khác nhau công nghệ làm việc cùng nhau.</h3>
     </div>
     <div class="cell cell--m well pbl">
-       <a href="https://www.codeschool.com/learn-angular-js-with-bootstrap">
+       <a href="https://www.codeschool.com/learn-angular-js-with-bootstrap" ng-repeat="category in listSubCategory | filter:{ type: 1 }">
           <div class="mv-flexBucket mv-flexBucket--flag bdr mtl ram">
              <div class="mv-flexBucket-media dn db--m pam attraction attraction--c rblm rtlm">
-                <img alt="Build an Interactive Website" ng-src="[[static_domain]]/index/icon-1.svg" width="100">
+                <img alt="Build an Interactive Website" ng-src="[[category.link_icon]]" width="100">
              </div>
              <div class="mv-flexBucket-content pam">
                 <div class="mv-flexBucket mv-flexBucket--flag mv-flexBucket--m--responsive">
                    <div class="mv-flexBucket-content">
                       <span class="label">Curated Content</span>
-                      <h3 class="course-title link twl">Learn AngularJS With Bootstrap</h3>
-                      <p class="course-tagline twl tct">Learn how to bring together AngularJS, Bootstrap, and Node.js to build your first fast and flexible Angular app.</p>
+                      <h3 class="course-title link twl">[[category.name]]</h3>
+                      <p class="course-tagline twl tct">[[category.description]]</p>
                    </div>
                    <div class="mv-flexBucket-media tac--m w-160--m">
                       <div class="btn btn--a">View Content</div>
@@ -84,27 +84,10 @@
              </div>
           </div>
        </a>
-       <a href="https://www.codeschool.com/build-an-interactive-website">
-          <div class="mv-flexBucket mv-flexBucket--flag bdr mtl ram">
-             <div class="mv-flexBucket-media dn db--m pam attraction attraction--c rblm rtlm">
-                <img alt="Build an Interactive Website" ng-src="[[static_domain]]/index/icon-2.svg" width="100">
 
-             </div>
-             <div class="mv-flexBucket-content pam">
-                <div class="mv-flexBucket mv-flexBucket--flag mv-flexBucket--m--responsive">
-                   <div class="mv-flexBucket-content">
-                      <span class="label">Curated Content</span>
-                      <h3 class="course-title link twl">Build an Interactive Website</h3>
-                      <p class="course-tagline twl tct">Learn the HTML, CSS, and JavaScript skills necessary to build your own interactive website using front-end development.</p>
-                   </div>
-                   <div class="mv-flexBucket-media tac--m w-160--m">
-                      <div class="btn btn--a">View Content</div>
-                   </div>
-                </div>
-             </div>
-          </div>
-       </a>
-       <a href="https://www.codeschool.com/mean">
+
+      
+     <!--   <a href="https://www.codeschool.com/mean">
           <div class="mv-flexBucket mv-flexBucket--flag bdr mtl ram">
              <div class="mv-flexBucket-media dn db--m pam attraction attraction--c rblm rtlm">
                 <img alt="Build an Interactive Website" ng-src="[[static_domain]]/index/icon-3.svg" width="100">
@@ -122,7 +105,7 @@
                 </div>
              </div>
           </div>
-       </a>
+       </a> -->
     </div>
  </div>
 
