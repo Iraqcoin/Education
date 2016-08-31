@@ -53,6 +53,8 @@
 
 	angular.module('eduCore').controller('rootController', ['$scope','$rootScope','$http', rootController]);
 	function rootController($scope , $rootScope , $http) {
+		$rootScope.isLogin = false;
+		$rootScope.showDropLogin = false;
 		$rootScope.checkAuthen = function(fnCallback){
 			$http.get(DOMAIN + "/user/sign_in?action=check")
 	        .success(function (data) {
@@ -61,6 +63,23 @@
 	            console.log("Get JSON Ajax Fail: " + url);
 	        });
 		}
+
+		$rootScope.showLogOut = function(){
+			console.log("showLogOut");
+	      var callback = function(data){
+	        console.log(data);
+	        if(!data || data.error < 0){
+	         	$rootScope.isLogin  = false;
+	        }
+	        else
+	          $rootScope.isLogin = true;
+	      }
+	      $rootScope.checkAuthen(callback);
+	    }
+
+
+	    $rootScope.showLogOut();
+
 	}
 
 	angular.module('eduCore').controller('eduMainController', ['$scope', 'eduMainFactory','$rootScope', eduMainController]);

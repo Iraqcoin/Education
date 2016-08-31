@@ -178,6 +178,22 @@ td,
 th {
     padding: 0
 }
+
+
+#search:focus{
+    outline: none;
+}
+#search{
+    background-color:transparent;
+    border: 0px solid;
+    height: 37px;
+    width: 230px;
+    margin-left: 35px;
+    margin-top: 2px;
+    font-size: 12.5px;
+}
+
+
 .center {
     left: 50%;
     position: absolute;
@@ -3225,8 +3241,8 @@ textarea {
     visibility: hidden
 }
 .attraction--a {
-    background: -webkit-linear-gradient(#21abc7, #616db3);
-    background: linear-gradient(#21abc7, #616db3)
+    background: -webkit-linear-gradient(#6012DC, #4B346B);
+    background: linear-gradient(#6012DC, #4B346B)
 }
 .attraction--a .attraction-btn {
     background: transparent;
@@ -3249,8 +3265,8 @@ textarea {
     background: linear-gradient(to left, #B5C721, #6EB361)
 }
 .attraction--a--reverse {
-   background: -webkit-linear-gradient(90deg, #21abc7, #616db3);
-   background: -webkit-linear-gradient(right, #6012DC, #4B346B)
+   background: -webkit-linear-gradient(90deg, #6012DC, #4B346B);
+   background: linear-gradient(0deg, #6012DC, #4B346B)
 }
 .attraction--b {
     background: -webkit-linear-gradient(#f68a2e, #f25852);
@@ -7022,7 +7038,7 @@ body.search {
     .search-trigger::before {
         bottom: 0;
         color: #aebdc1;
-        content: "What do you want to learn?";
+        /*content: "Bạn muốn học gì nào?";*/
         font-size: 85%;
         height: 40px;
         left: 3.75em;
@@ -8404,9 +8420,9 @@ body.search {
 .dib {
     display: inline-block
 }
-.dn {
+/*.dn {
     display: none
-}
+}*/
 .dt {
     display: table
 }
@@ -8787,9 +8803,9 @@ body.search {
 .oph {
     opacity: 0.5
 }
-.optq {
+/*.optq {
     opacity: 0.75
-}
+}*/
 .opf {
     opacity: 1
 }

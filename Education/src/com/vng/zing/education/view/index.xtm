@@ -6,7 +6,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta content="width=device-width, initial-scale=1.0" name="viewport">
     
-      <title>Learn by doing | Tony Education</title>
+      <title>Learn by doing | King-Code Education</title>
     
       <link href="{{static_domain}}/css/index.css?v=5" media="screen" rel="stylesheet" type="text/css">
       <link href="{{static_domain}}/css/css.css?v=2" media="screen" rel="stylesheet" type="text/css">
@@ -32,15 +32,36 @@
                      <li class="nav-item list-item"><a href="/#/learn" class="nav-item-link list-item-link">Khóa Học</a></li>
                      <li class="nav-item list-item"><a href="/#/screencasts" class="nav-item-link list-item-link">Thảo Luận</a></li>
                      <li class="nav-item list-item"><a href="/#/pricing/team" class="nav-item-link list-item-link">Hợp tác</a></li>
-                     <li class="nav-item nav-item--btn list-item mla">
-                        <a href="/#/users/sign_up" class="btn btn--s btn--important--bordered list-item-link">Tạo Tài Khoản</a>
+                     <li class="nav-item nav-item--btn list-item mla" >
+                        <a href="{{domain}}/user/sign_up" class="btn btn--s btn--important--bordered list-item-link" ng-show="!isLogin">Tạo Tài Khoản</a>
                      </li>
-                     <li class="nav-item list-item"><a href="#/course/1"  class="nav-item-link list-item-link">Đăng Nhập</a></li>
+                     <li class="nav-item list-item"><a href="{{domain}}/user/sign_in"  class="nav-item-link list-item-link" ng-show="!isLogin">Đăng Nhập</a></li>
+                     
                      <li class="nav-item nav-item--search list-item">
                         <div class="search-trigger" data-target="#search-open" data-toggle="modal">
+                            <input type="text" id="search" placeholder="Bạn muốn học gì nào?"/>
                            <span class="search-icn"><i class="fa fa-search" aria-hidden="true"></i></span>
                         </div>
                      </li>
+                     
+                     <li class="nav-item nav-item--separator list-item dn db--800" ng-show="isLogin">
+
+                     </li>
+                     
+                     <li class="nav-item list-item dn db--800" ng-show="isLogin">
+                        <div class="dropdown dropdown--nested dropdown--east nav-dropdown has-userMenu js-dropdown is-active">
+                            <a class="userMenu js-dropdown-btn" id="account-dropdown" href="" ng-click="showDropLogin=!showDropLogin"><img height="40" width="40" alt="" class="thumb userMenu-thumb" src="https://secure.gravatar.com/avatar/b9de64a4815037118c0c588d7eebdc52.jpg?s=40&amp;r=pg&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F1c02274fedcce55a289172bfb8db25ab.jpg%3Fs%3D40%26r%3Dpg">
+                                <i class="userMenu-icn fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" ng-show="isLogin && showDropLogin">
+                                <li class="dropdown-item"><a class="dropdown-item-link" href="">My Dashboard</a></li>
+                                <li class="dropdown-item"><a class="dropdown-item-link" href="/account/edit">My Profile</a></li>
+                                <li class="dropdown-item"><a class="dropdown-item-link" href="/users/2634744">My Report Card</a></li>
+                                <li class="dropdown-item"><a class="dropdown-item-link" href="/user/sign_in?action=logout">Sign Out</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                     
                   </ol>
                </nav>
                <div class="modal modal--search fade js-searchAutocomplete-modal" id="search-open">
@@ -140,26 +161,26 @@
                            <ul class="list iconList mbs mbm--xl">
                               <li class="iconList-item">
                                  <a href="https://twitter.com/codeschool" class="iconList-item-link footer-list-link"><b class="srt">Twitter</b>
-                                 <i class="icn icn--twitter iconList-item-icn"></i>
+                                 <i class="fa fa-twitter"></i>
                                  </a>
                               </li>
                               <li class="iconList-item">
                                  <a href="https://www.facebook.com/CodeSchool" class="iconList-item-link footer-list-link"><b class="srt">Facebook</b>
-                                 <i class="icn icn--facebook iconList-item-icn"></i>
+                                 <i class="fa fa-facebook-official"></i>
                                  </a>
                               </li>
                               <li class="iconList-item">
                                  <a href="https://plus.google.com/+Codeschool/posts" class="iconList-item-link footer-list-link"><b class="srt">Google+</b>
-                                 <i class="icn icn--googlePlus iconList-item-icn"></i>
+                                 <i class="fa fa-google-plus-square"></i>
                                  </a>
                               </li>
                               <li class="iconList-item">
                                  <a href="http://instagram.com/codeschool" class="iconList-item-link footer-list-link"><b class="srt">Instagram</b>
-                                 <i class="icn icn--instagram iconList-item-icn"></i>
+                                 <i class="fa fa-instagram"></i>
                                  </a>
                               </li>
                            </ul>
-                           <a href="https://itunes.apple.com/us/app/code-school/id927194858?mt=8" class="db mbm"><img alt="Download in the App Store" class="db" height="40" src="{{static_domain}}/index/logo-app-store.svg" width="135">
+                           <a href="" class="db mbm"><img alt="Download in the App Store" class="db" height="40" src="{{static_domain}}/index/logo-app-store.svg" width="135">
                            </a>
                         </div>
                      </div>

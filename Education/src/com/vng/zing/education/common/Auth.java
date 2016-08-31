@@ -90,7 +90,7 @@ public class Auth {
                 if (cookie.getName().equals(name)) {
                     _log.info("remove cookie : domain=" + domain + " | value=" + cookie.getValue());
 
-                    cookie.setDomain(domain);
+                   // cookie.setDomain(domain);
                     cookie.setPath("/");
                     cookie.setMaxAge(0);
                     cookie.setHttpOnly(true);

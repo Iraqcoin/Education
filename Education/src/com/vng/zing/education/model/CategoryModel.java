@@ -9,7 +9,6 @@ import com.vng.zing.education.common.MysqlClient;
 import com.vng.zing.education.dto.BaseDTO;
 import com.vng.zing.education.dto.CategoryDTO;
 import com.vng.zing.education.dto.ParentCategoryDTO;
-import com.vng.zing.education.dto.SubCategoryDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

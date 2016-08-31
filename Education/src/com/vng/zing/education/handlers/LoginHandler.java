@@ -51,6 +51,10 @@ public class LoginHandler extends HttpServlet {
                     printJSON(parseErrorToJson(auth.userId ,""), resp);
                 return;
             }
+            else if(action.equals("logout")){
+                Auth.removeCookie(Auth.AUTH,Configuration.getDomain(), req, resp);
+                resp.sendRedirect(Configuration.getDomain());
+            }
             String continues = HReqParam.getString(req, "continue", Configuration.getDomain());
             Auth auth = Auth.getIdentity(req);
             if (!auth.isLogged) {
